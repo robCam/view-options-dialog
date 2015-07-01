@@ -86,7 +86,8 @@
     <script src="js/view-options-dialog-bttn.js"></script>
     <script>
 
-    var paperColorRadiobuttons = [];
+    var utils = RCAM.utils,
+        paperColorRadiobuttons = [];
 
     var fontSmallerBttn = new RCAM.widgets.ViewOptionsBttn('.js-fontsmaller', {
         persistActiveState: false
@@ -105,7 +106,9 @@
             var self = this;
             paperColorRadiobuttons.forEach(function (button) {
                 if (button !== self) {
-                    button.el.classList.remove('view-options__bttn--active');
+                    //button.el.classList.remove('view-options__bttn--active');
+                    utils.removeClass(button.el, 'view-options__bttn--active');
+
                 }
             });
         }
@@ -118,7 +121,7 @@
             var self = this;
             paperColorRadiobuttons.forEach(function (button) {
                 if (button !== self) {
-                    button.el.classList.remove('view-options__bttn--active');
+                    utils.removeClass(button.el, 'view-options__bttn--active');
                 }
             });
         }
@@ -131,7 +134,7 @@
             var self = this;
             paperColorRadiobuttons.forEach(function (button) {
                 if (button !== self) {
-                    button.el.classList.remove('view-options__bttn--active');
+                    utils.removeClass(button.el, 'view-options__bttn--active');
                 }
             });
         }
