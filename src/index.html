@@ -75,8 +75,8 @@
                 </button>
                 <button class="view-options__bttn view-options__bttn--chosenfont js-chosenFont">publisher font</button>
                 <button class="view-options__bttn view-options__bttn--white js-paper-white">white</button>
-                <button class="view-options__bttn view-options__bttn--black">black</button>
-                <button class="view-options__bttn view-options__bttn--sepia">sepia</button>     
+                <button class="view-options__bttn view-options__bttn--black js-paper-black">black</button>
+                <button class="view-options__bttn view-options__bttn--sepia js-paper-sepia">sepia</button>     
             </div>
         </div>
     </div>
@@ -112,6 +112,32 @@
     });
 
     paperColorRadiobuttons.push(paperWhiteBttn);
+
+    var paperBlackBttn = new RCAM.widgets.ViewOptionsBttn('.js-paper-black', {
+        onPointerEndCallback: function() {
+            var self = this;
+            paperColorRadiobuttons.forEach(function (button) {
+                if (button !== self) {
+                    button.el.classList.remove('view-options__bttn--active');
+                }
+            });
+        }
+    });
+
+    paperColorRadiobuttons.push(paperBlackBttn);
+
+    var paperSepiaBttn = new RCAM.widgets.ViewOptionsBttn('.js-paper-sepia', {
+        onPointerEndCallback: function() {
+            var self = this;
+            paperColorRadiobuttons.forEach(function (button) {
+                if (button !== self) {
+                    button.el.classList.remove('view-options__bttn--active');
+                }
+            });
+        }
+    });
+
+    paperColorRadiobuttons.push(paperSepiaBttn);
 
     document.addEventListener('touchmove', function(e) { e.preventDefault(); }, false);
 
