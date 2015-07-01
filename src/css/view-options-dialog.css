@@ -122,7 +122,17 @@
     /*border: 2px solid hsl(212, 93%, 63%);*/
 }
 
+.view-options__bttn--black--hover {
+    background: hsl(0, 0%, 0%);
+}
+
+.view-options__bttn--sepia--hover {
+    background: hsl(40, 35%, 70%);
+}
+
 .view-options__bttn--active:after,
+.view-options__bttn--black--hover:after,
+.view-options__bttn--sepia--hover:after,
 .view-options__bttn--hover:after {
     content: "";
     position: absolute;
@@ -132,7 +142,7 @@
     left: -1px;
     border: 2px solid hsl(212, 93%, 63%);
     border-radius: 6px;
-    /*z-index: 2;*/
+    z-index: 2;
 
     -webkit-transform: translateZ(0);
             transform: translateZ(0);
