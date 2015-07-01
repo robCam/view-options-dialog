@@ -90,19 +90,32 @@
         paperColorRadiobuttons = [];
 
     var fontSmallerBttn = new RCAM.widgets.ViewOptionsBttn('.js-fontsmaller', {
-        persistActiveState: false
+            hoverStateStyle  : 'view-options__bttn--hover',
+            activeStateStyle : 'view-options__bttn--active'
+        },{
+            persistActiveState: false
     });
 
     var fontLargerBttn = new RCAM.widgets.ViewOptionsBttn('.js-fontlarger', {
+            hoverStateStyle  : 'view-options__bttn--hover',
+            activeStateStyle : 'view-options__bttn--active'
+        },
+        {
         persistActiveState: false
     });
 
     var chosenFontBttn = new RCAM.widgets.ViewOptionsBttn('.js-chosenFont', {
+            hoverStateStyle  : 'view-options__bttn--hover',
+            activeStateStyle : 'view-options__bttn--active'
+        },{
         persistActiveState: false
     });
     
     var paperWhiteBttn = new RCAM.widgets.ViewOptionsBttn('.js-paper-white', {
-        onPointerEndCallback: function() {
+            hoverStateStyle  : 'view-options__bttn--hover',
+            activeStateStyle : 'view-options__bttn--active'
+        },
+        { onPointerEndCallback: function() {
             var self = this;
             paperColorRadiobuttons.forEach(function (button) {
                 if (button !== self) {
@@ -117,7 +130,10 @@
     paperColorRadiobuttons.push(paperWhiteBttn);
 
     var paperBlackBttn = new RCAM.widgets.ViewOptionsBttn('.js-paper-black', {
-        onPointerEndCallback: function() {
+            hoverStateStyle  : 'view-options__bttn--black--hover',
+            activeStateStyle : 'view-options__bttn--active'
+        },
+        { onPointerEndCallback: function() {
             var self = this;
             paperColorRadiobuttons.forEach(function (button) {
                 if (button !== self) {
@@ -130,7 +146,10 @@
     paperColorRadiobuttons.push(paperBlackBttn);
 
     var paperSepiaBttn = new RCAM.widgets.ViewOptionsBttn('.js-paper-sepia', {
-        onPointerEndCallback: function() {
+            hoverStateStyle  : 'view-options__bttn--sepia--hover',
+            activeStateStyle : 'view-options__bttn--active'
+        },
+        { onPointerEndCallback: function() {
             var self = this;
             paperColorRadiobuttons.forEach(function (button) {
                 if (button !== self) {
