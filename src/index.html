@@ -86,54 +86,24 @@
     <script src="js/view-options-dialog-bttn.js"></script>
     <script>
 
-    var buttons = [];
+    var paperColorRadiobuttons = [];
 
     var fontSmallerBttn = new RCAM.widgets.ViewOptionsBttn('.js-fontsmaller', {
-        persistActiveState: false,
-        onPointerEndCallback: function() {
-            var self = this;
-            buttons.forEach(function (button) {
-                if (button !== self) {
-                    button.el.classList.remove('view-options__bttn--active');
-                }
-            });
-        }
+        persistActiveState: false
     });
-
-    buttons.push(fontSmallerBttn);
 
     var fontLargerBttn = new RCAM.widgets.ViewOptionsBttn('.js-fontlarger', {
-        persistActiveState: false,
-        onPointerEndCallback: function() {
-            var self = this;
-            buttons.forEach(function (button) {
-                if (button !== self) {
-                    button.el.classList.remove('view-options__bttn--active');
-                }
-            });
-        }
+        persistActiveState: false
     });
-
-    buttons.push(fontLargerBttn);
 
     var chosenFontBttn = new RCAM.widgets.ViewOptionsBttn('.js-chosenFont', {
-        persistActiveState: false,
-        onPointerEndCallback: function() {
-            var self = this;
-            buttons.forEach(function (button) {
-                if (button !== self) {
-                    button.el.classList.remove('view-options__bttn--active');
-                }
-            });
-        }
+        persistActiveState: false
     });
-    
-    buttons.push(chosenFontBttn);
     
     var paperWhiteBttn = new RCAM.widgets.ViewOptionsBttn('.js-paper-white', {
         onPointerEndCallback: function() {
             var self = this;
-            buttons.forEach(function (button) {
+            paperColorRadiobuttons.forEach(function (button) {
                 if (button !== self) {
                     button.el.classList.remove('view-options__bttn--active');
                 }
@@ -141,7 +111,7 @@
         }
     });
 
-    buttons.push(paperWhiteBttn);
+    paperColorRadiobuttons.push(paperWhiteBttn);
 
     document.addEventListener('touchmove', function(e) { e.preventDefault(); }, false);
 
