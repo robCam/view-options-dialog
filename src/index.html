@@ -89,6 +89,7 @@
     var buttons = [];
 
     var fontSmallerBttn = new RCAM.widgets.ViewOptionsBttn('.js-fontsmaller', {
+        persistActiveState: false,
         onPointerEndCallback: function() {
             var self = this;
             buttons.forEach(function (button) {
@@ -102,6 +103,7 @@
     buttons.push(fontSmallerBttn);
 
     var fontLargerBttn = new RCAM.widgets.ViewOptionsBttn('.js-fontlarger', {
+        persistActiveState: false,
         onPointerEndCallback: function() {
             var self = this;
             buttons.forEach(function (button) {
@@ -115,6 +117,7 @@
     buttons.push(fontLargerBttn);
 
     var chosenFontBttn = new RCAM.widgets.ViewOptionsBttn('.js-chosenFont', {
+        persistActiveState: false,
         onPointerEndCallback: function() {
             var self = this;
             buttons.forEach(function (button) {
