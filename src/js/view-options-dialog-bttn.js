@@ -14,7 +14,7 @@ RCAM.widgets.ViewOptionsBttn = (function (global) {
         doc   = global.document,
         nextFrame = win.requestAnimFrame;
 
-    function ViewOptionsBttn(el, options) {
+    function ViewOptionsBttn(el, styles, options) {
 
         /**
          * Ensure the constructor is new-agnostic
@@ -24,6 +24,9 @@ RCAM.widgets.ViewOptionsBttn = (function (global) {
         if (!(this instanceof ViewOptionsBttn)) {
             return new ViewOptionsBttn(el, options);
         }
+
+        this.hoverStateStyle  = styles.hoverStateStyle;
+        this.activeStateStyle = styles.activeStateStyle;
 
         /**
          * Object containing the default configuration options.
@@ -81,7 +84,7 @@ RCAM.widgets.ViewOptionsBttn = (function (global) {
          * @private 
          */
         _onStart : function (e) {
-            utils.addClass(this.el, 'view-options__bttn--hover');
+            utils.addClass(this.el, this.hoverStateStyle);
             this.el.addEventListener(param.pointerEnd, this, false);
             this.el.addEventListener(param.pointerCancel, this, false);
             e.preventDefault();
@@ -96,10 +99,10 @@ RCAM.widgets.ViewOptionsBttn = (function (global) {
         _onEnd : function (e) {
             /*var self = this;*/
 
-            utils.removeClass(this.el, 'view-options__bttn--hover');
+            utils.removeClass(this.el, this.hoverStateStyle);
 
             if (this.options.persistActiveState) {
-                utils.addClass(this.el, 'view-options__bttn--active');
+                utils.addClass(this.el, this.activeStateStyle);
             }
 
             this.el.removeEventListener(param.pointerEnd, this, false);
@@ -170,7 +173,7 @@ RCAM.widgets.ViewOptionsBttn = (function (global) {
             this.isActive = this.isActive ? false : true;
 
             nextFrame(function() {
-                self.el.classList.toggle('foobar');
+                //self.el.classList.toggle('foobar');
             });
 
             if (this.options.onToggleState) {
