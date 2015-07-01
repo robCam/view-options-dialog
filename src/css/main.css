@@ -1,0 +1,13 @@
+/**
+ *
+ * Main styles
+ *
+ */
+.wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: hsl(0, 0%, 80%);
+}

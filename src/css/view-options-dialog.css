@@ -1,0 +1,124 @@
+/**
+*
+*  Copyright 2015 Robert Campbell. All rights reserved.
+* 
+*  Licensed under the Apache License, Version 2.0 (the "License");
+*  you may not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+*  http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing, software
+*  distributed under the License is distributed on an "AS IS" BASIS,
+*  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+*  See the License for the specific language governing permissions and
+*  limitations under the License.
+*
+*/
+
+/**
+ *
+ * View Options
+ *
+ */
+.view-options {
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    width: 320px;
+    height: 320px;
+    background: hsl(0, 0%, 96%);
+    overflow: hidden;
+    border-radius: 14px;
+}
+
+.view-options--shadow {
+    box-shadow: 0 0 50px hsla(0, 0%, 0%, .15);
+}
+
+.view-options__title {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 50px;
+    left: 0px;
+    background: hsl(0, 0%, 100%);
+    border-radius: 10px 10px 0 0;
+    border-bottom: 1px solid hsl(0, 0%, 80%);
+    font: 400 18px/48px "Helvetica Neue", Helvetica, sans-serif;
+    color: hsl(0, 0%, 20%);
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.view-options__content {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+}
+
+.view-options__bttn {
+    position: relative;
+    width: 136px;
+    height: 42px;
+    background: hsl(0, 0%, 94%);
+    border: 1px solid hsl(0, 0%, 76%);
+    border-radius: 6px;
+    margin-right: 8px;
+    margin-bottom: 16px;
+    outline: none;
+    float: left;
+    font: 400 16px/40px "Helvetica Neue", Helvetica, sans-serif;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+.view-options__bttn--fontlarger {
+    margin-right: 0;
+}
+
+.view-options__bttn--chosenfont {
+    width: 100%;
+    font: 400 18px/40px "Times New Roman", Times, serif;
+}
+
+.view-options__bttn--white,
+.view-options__bttn--black,
+.view-options__bttn--sepia {
+    width: 88px;
+    margin-right: 8px;
+}
+
+.view-options__bttn--white {
+    /*background: hsl(0, 0%, 100%);*/
+    background: none;
+    color: hsl(0, 0%, 30%);
+    border: 1px solid hsl(0, 0%, 76%);
+}
+
+.view-options__bttn--black {
+    background: hsl(0, 0%, 0%);
+    color: hsl(0, 0%, 100%);
+    border: 1px solid hsl(0, 0%, 0%);
+}
+
+.view-options__bttn--sepia {
+    background: hsl(40, 35%, 70%);
+    color: hsl(0, 0%, 100%);
+    border: 1px solid hsl(40, 35%, 70%);
+    text-shadow: 0 0 2px hsl(40, 35%, 65%);
+    margin-right: 0;
+}
+
+.view-options__bttn--active {
+    border: 2px solid hsl(212, 93%, 63%);
+}
+
+.view-options__bttn--hover {
+    background: hsl(210, 40%, 100%);
+    border: 2px solid hsl(212, 93%, 63%);
+}
+

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<!--
+*
+*  Copyright 2015 Robert Campbell. All rights reserved.
+* 
+*  Licensed under the Apache License, Version 2.0 (the "License");
+*  you may not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+*  http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing, software
+*  distributed under the License is distributed on an "AS IS" BASIS,
+*  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+*  See the License for the specific language governing permissions and
+*  limitations under the License.
+*
+*-->
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>viewOptions</title>
+    <meta name="author" content="Rob Campbell" />
+    <meta name="description" content="a view options interface" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="manifest" href="manifest.json" />
+
+    <!-- Add to homescreen and theme color for Android Chrome -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta id="theme-color" name="theme-color" content="#000" />
+
+    <!-- Add to homescreen for iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="viewOptions" />
+
+    <!-- Homescreen touch icons for iOS -->
+    <link rel="apple-touch-icon" href="images/launcher-icons/icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="images/launcher-icons/icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="images/launcher-icons/icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="images/launcher-icons/icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/launcher-icons/icon-180x180.png" />
+
+    <!--build:css css/style.min.css-->
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/view-options-dialog.css" />
+    <!--/build-->
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="view-options view-options--shadow">
+            <h2 class="view-options__title">view options</h2>
+            <div class="view-options__content">
+                <button class="view-options__bttn view-options__bttn--fontsmaller js-fontsmaller">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="136px" height="28px" viewBox="-10 -18 88 42" aria-labelledby="font-smaller" role="presentation">
+                        <title id="font-smaller">font size smaller</title>
+                        <path fill="hsl(0, 0%, 30%)" d="M8.017,13.538L5.966,19.75H3.328L10.039,0h3.077l6.74,19.75h-2.725l-2.11-6.212H8.017z M14.493,11.545L12.529,5.86c-0.41-1.29-0.703-2.461-0.996-3.604h-0.088c-0.264,1.143-0.586,2.374-0.967,3.575l-1.934,5.714H14.493z"/>
+                        <path fill="hsl(0, 0%, 30%)" d="M28.514,17.119c0,0.952,0.045,1.883,0.158,2.631h-1.793l-0.181-1.384H26.63c-0.59,0.862-1.792,1.633-3.357,1.633c-2.223,0-3.357-1.564-3.357-3.153c0-2.654,2.359-4.105,6.602-4.083v-0.227c0-0.907-0.25-2.563-2.496-2.541c-1.044,0-2.109,0.295-2.88,0.817l-0.455-1.338c0.908-0.567,2.246-0.954,3.63-0.954c3.38,0,4.196,2.291,4.196,4.491v4.107H28.514zM26.562,14.146c-2.178-0.045-4.65,0.342-4.65,2.473c0,1.315,0.861,1.906,1.859,1.906c1.451,0,2.382-0.907,2.7-1.838c0.067-0.203,0.091-0.431,0.091-0.635V14.146z"/>
+                    </svg>
+                </button>
+                <button class="view-options__bttn view-options__bttn--fontlarger js-fontlarger">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="136px" height="38px" viewBox="-10 -12 88 42" aria-labelledby="font-larger">
+                        <title id="font-larger">font size larger</title>
+                        <path fill="hsl(0, 0%, 30%)" d="M8.017,13.538L5.966,19.75H3.328L10.039,0h3.077l6.74,19.75h-2.725l-2.11-6.212H8.017z M14.493,11.545L12.529,5.86c-0.41-1.29-0.703-2.461-0.996-3.604h-0.088c-0.264,1.143-0.586,2.374-0.967,3.575l-1.934,5.714H14.493z"/>
+                        <path fill="hsl(0, 0%, 30%)" d="M28.514,17.119c0,0.952,0.045,1.883,0.158,2.631h-1.793l-0.181-1.384H26.63c-0.59,0.862-1.792,1.633-3.357,1.633c-2.223,0-3.357-1.564-3.357-3.153c0-2.654,2.359-4.105,6.602-4.083v-0.227c0-0.907-0.25-2.563-2.496-2.541c-1.044,0-2.109,0.295-2.88,0.817l-0.455-1.338c0.908-0.567,2.246-0.954,3.63-0.954c3.38,0,4.196,2.291,4.196,4.491v4.107H28.514zM26.562,14.146c-2.178-0.045-4.65,0.342-4.65,2.473c0,1.315,0.861,1.906,1.859,1.906c1.451,0,2.382-0.907,2.7-1.838c0.067-0.203,0.091-0.431,0.091-0.635V14.146z"/>
+                    </svg>
+                </button>
+                <button class="view-options__bttn view-options__bttn--chosenfont js-chosenFont">publisher font</button>
+                <button class="view-options__bttn view-options__bttn--white js-paper-white">white</button>
+                <button class="view-options__bttn view-options__bttn--black">black</button>
+                <button class="view-options__bttn view-options__bttn--sepia">sepia</button>     
+            </div>
+        </div>
+    </div>
+    <script src="js/param.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/third-party/request-animation-frame.js"></script>
+    <script src="js/view-options-dialog-bttn.js"></script>
+    <script>
+
+    var buttons = [];
+
+    var fontSmallerBttn = new RCAM.widgets.ViewOptionsBttn('.js-fontsmaller', {
+        onPointerEndCallback: function() {
+            var self = this;
+            buttons.forEach(function (button) {
+                if (button !== self) {
+                    button.el.classList.remove('view-options__bttn--active');
+                }
+            });
+        }
+    });
+
+    buttons.push(fontSmallerBttn);
+
+    var fontLargerBttn = new RCAM.widgets.ViewOptionsBttn('.js-fontlarger', {
+        onPointerEndCallback: function() {
+            var self = this;
+            buttons.forEach(function (button) {
+                if (button !== self) {
+                    button.el.classList.remove('view-options__bttn--active');
+                }
+            });
+        }
+    });
+
+    buttons.push(fontLargerBttn);
+
+    var chosenFontBttn = new RCAM.widgets.ViewOptionsBttn('.js-chosenFont', {
+        onPointerEndCallback: function() {
+            var self = this;
+            buttons.forEach(function (button) {
+                if (button !== self) {
+                    button.el.classList.remove('view-options__bttn--active');
+                }
+            });
+        }
+    });
+    
+    buttons.push(chosenFontBttn);
+    
+    var paperWhiteBttn = new RCAM.widgets.ViewOptionsBttn('.js-paper-white', {
+        onPointerEndCallback: function() {
+            var self = this;
+            buttons.forEach(function (button) {
+                if (button !== self) {
+                    button.el.classList.remove('view-options__bttn--active');
+                }
+            });
+        }
+    });
+
+    buttons.push(paperWhiteBttn);
+
+    document.addEventListener('touchmove', function(e) { e.preventDefault(); }, false);
+
+    </script>
+</body>
+
+</html>
+
