@@ -114,11 +114,26 @@
 }
 
 .view-options__bttn--active {
-    border: 2px solid hsl(212, 93%, 63%);
+    /*border: 2px solid hsl(212, 93%, 63%);*/
 }
 
 .view-options__bttn--hover {
     background: hsl(210, 40%, 100%);
-    border: 2px solid hsl(212, 93%, 63%);
+    /*border: 2px solid hsl(212, 93%, 63%);*/
 }
 
+.view-options__bttn--active:after,
+.view-options__bttn--hover:after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    left: -1px;
+    border: 2px solid hsl(212, 93%, 63%);
+    border-radius: 6px;
+    /*z-index: 2;*/
+
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+}
