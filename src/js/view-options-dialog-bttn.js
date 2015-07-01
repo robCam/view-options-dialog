@@ -32,6 +32,7 @@ RCAM.widgets.ViewOptionsBttn = (function (global) {
          * @type Object
          */
         this.options = {
+            persistActiveState : true,
             onPointerEndCallback : null
         };
 
@@ -96,7 +97,10 @@ RCAM.widgets.ViewOptionsBttn = (function (global) {
             /*var self = this;*/
 
             utils.removeClass(this.el, 'view-options__bttn--hover');
-            utils.addClass(this.el, 'view-options__bttn--active');
+
+            if (this.options.persistActiveState) {
+                utils.addClass(this.el, 'view-options__bttn--active');
+            }
 
             this.el.removeEventListener(param.pointerEnd, this, false);
             this.el.removeEventListener(param.pointerCancel, this, false);
