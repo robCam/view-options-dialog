@@ -50,8 +50,6 @@ RCAM.widgets.ViewOptionsBttn = (function (global) {
         this.el = typeof el === 'string' ? doc.querySelector(el) : el;
 
         this.el.addEventListener(param.pointerStart, this, false);
-        /*this.el.addEventListener(param.pointerEnd, this, false);
-        this.el.addEventListener(param.transitionEnd, this, false);*/
     }
 
     ViewOptionsBttn.prototype = {
@@ -130,58 +128,7 @@ RCAM.widgets.ViewOptionsBttn = (function (global) {
                     }
                 }
             }
-        },
-
-        /**
-         * Called when the header tray completes its animation.
-         * @method _onTransitionEnd
-         * @private
-         */
-        _onTransitionEnd : function () {
-
-        },
-
-        /**
-         * Enables the els pointer inputs (pointerEnd and pointerCancel)
-         * @method _activateInput
-         * @private
-         */
-        _activateInput : function () {
-            this.el.addEventListener(param.pointerEnd, this, false);
-            this.el.addEventListener(param.pointerCancel, this, false);
-        },
-
-        /**
-         * Disables the els pointer inputs (pointerEnd and pointerCancel)
-         * @method _activateInput
-         * @private
-         */
-        _deactivateInput : function () {
-            this.el.removeEventListener(param.pointerEnd, this, false);
-            this.el.removeEventListener(param.pointerCancel, this, false);
-        },
-
-        /**
-         * Toggles the active/non-active el state.
-         * @method toggleTray
-         * @example
-             el.toggleState();
-         */
-        toggleState : function () {
-            var self = this;
-
-            this.isActive = this.isActive ? false : true;
-
-            nextFrame(function() {
-                //self.el.classList.toggle('foobar');
-            });
-
-            if (this.options.onToggleState) {
-                this.options.onToggleState.call(self);
-            }
-
         }
-
     };
 
     return ViewOptionsBttn;
