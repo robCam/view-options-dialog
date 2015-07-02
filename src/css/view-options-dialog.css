@@ -60,6 +60,14 @@
     padding: 20px;
 }
 
+.view-options__content__container {
+    position: relative;
+    width: 280px;
+    height: auto;
+    margin: auto;
+    background: red;
+}
+
 .view-options__bttn {
     position: relative;
     width: 136px;
