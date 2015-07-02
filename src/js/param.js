@@ -33,9 +33,10 @@ RCAM.init = (function (global) {
                 .match(/-(moz|webkit|ms)-/) || (styles.OLink === '' && ['', 'o'])
             )[1];
 
-        param.hasTouch = doc.hasOwnProperty('ontouchstart') ||
-                       (nav.MaxTouchPoints > 0) ||
-                       (nav.msMaxTouchPoints > 0);
+        param.hasTouch = win.hasOwnProperty('ontouchstart') ||
+                         doc.hasOwnProperty('ontouchstart') ||
+                         (nav.MaxTouchPoints > 0)           ||
+                         (nav.msMaxTouchPoints > 0);
 
         param.resizeEvent  = hasOrientation ? 'orientationchange' : 'resize';
         param.pointerStart = param.hasTouch ? 'touchstart' : 'mousedown';
