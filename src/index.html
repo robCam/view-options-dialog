@@ -118,14 +118,14 @@
             activeStateStyle : 'view-options__bttn--active'
         },
         { onPointerEndCallback: function() {
-            var self = this;
+            var self = this,
+                paper = document.querySelector('.wrapper');
             paperColorRadiobuttons.forEach(function (button) {
                 if (button !== self) {
-                    //button.el.classList.remove('view-options__bttn--active');
                     utils.removeClass(button.el, 'view-options__bttn--active');
-
                 }
             });
+            paper.style.background = "hsl(0, 0%, 80%)";
         }
     });
 
@@ -136,12 +136,14 @@
             activeStateStyle : 'view-options__bttn--active'
         },
         { onPointerEndCallback: function() {
-            var self = this;
+            var self = this,
+                paper = document.querySelector('.wrapper');
             paperColorRadiobuttons.forEach(function (button) {
                 if (button !== self) {
                     utils.removeClass(button.el, 'view-options__bttn--active');
                 }
             });
+            paper.style.background = "hsl(0, 0%, 6%)";
         }
     });
 
@@ -152,12 +154,14 @@
             activeStateStyle : 'view-options__bttn--active'
         },
         { onPointerEndCallback: function() {
-            var self = this;
+            var self = this,
+                paper = document.querySelector('.wrapper');
             paperColorRadiobuttons.forEach(function (button) {
                 if (button !== self) {
                     utils.removeClass(button.el, 'view-options__bttn--active');
                 }
             });
+            paper.style.background = "hsl(40, 35%, 70%)";
         }
     });
 
