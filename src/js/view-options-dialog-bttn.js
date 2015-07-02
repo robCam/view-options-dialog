@@ -128,7 +128,12 @@ RCAM.widgets.ViewOptionsBttn = (function (global) {
                     }
                 }
             }
+        },
+
+        destroy : function () {
+            this.el.removeEventListener(param.pointerStart, this, false);
         }
+
     };
 
     return ViewOptionsBttn;
