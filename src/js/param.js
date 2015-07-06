@@ -33,7 +33,7 @@ RCAM.init = (function (global) {
                 .match(/-(moz|webkit|ms)-/) || (styles.OLink === '' && ['', 'o'])
             )[1];
 
-        param.hasTouch = 'ontouchstart' in document;
+        param.hasTouch = 'ontouchstart' in doc;
         /*param.hasTouch = win.hasOwnProperty('ontouchstart') ||
                          win.hasOwnProperty('ontouchstart') ||
                          (nav.MaxTouchPoints > 0)           ||
