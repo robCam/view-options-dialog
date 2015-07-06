@@ -1,2 +1,7 @@
 # OS generated files #
 *.DS_Store
+
+# Build generated files #
+dist/
+node_modules/
+docs/

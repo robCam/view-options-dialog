@@ -65,9 +65,7 @@ RCAM.widgets.Button = (function (global) {
         this._extend(this.options, options);
 
         // Normalise 'persistActiveState' state
-        this.options.persistActiveState = this.activeStateStyle === undefined
-            ? false
-            : this.options.persistActiveState;
+        this.options.persistActiveState = this.activeStateStyle === undefined ? false : this.options.persistActiveState;
 
         /**
          * The DOM node.
