@@ -36,11 +36,17 @@ RCAM.widgets.ViewOptionsBttn = (function (global) {
          */
         this.options = {
             persistActiveState : true,
-            onPointerEndCallback : null
+            onPointerEndCallback : null,
+            perimeterDelta : 30
         };
 
         // Merge/replace the user defined options
         this._extend(this.options, options);
+
+
+        this.options.persistActiveState = this.activeStateStyle === undefined
+            ? false
+            : this.options.persistActiveState;
 
         /**
          * The DOM node.
@@ -48,6 +54,12 @@ RCAM.widgets.ViewOptionsBttn = (function (global) {
          * @type Object
          */
         this.el = typeof el === 'string' ? doc.querySelector(el) : el;
+
+        this.bounds = this._getBounds();
+
+        this.pointerIsDown = false;
+
+        this.pointerIsInBounds = false;
 
         this.el.addEventListener(param.pointerStart, this, false);
     }
@@ -66,6 +78,9 @@ RCAM.widgets.ViewOptionsBttn = (function (global) {
             case param.pointerStart:
                 this._onStart(e);
                 break;
+            case param.pointerMove:
+                this._onMove(e);
+                break;
             case param.pointerEnd:
             case param.pointerCancel:
                 this._onEnd(e);
@@ -82,11 +97,48 @@ RCAM.widgets.ViewOptionsBttn = (function (global) {
          * @private 
          */
         _onStart : function (e) {
+            var docOrButton = param.hasTouch ? this.el : doc;
+
+            this.pointerIsDown = true;
+            this.pointerIsInBounds = true;
+
             utils.addClass(this.el, this.hoverStateStyle);
-            this.el.addEventListener(param.pointerEnd, this, false);
-            this.el.addEventListener(param.pointerCancel, this, false);
+
+            docOrButton.addEventListener(param.pointerMove, this, false);
+            docOrButton.addEventListener(param.pointerEnd, this, false);
+            docOrButton.addEventListener(param.pointerCancel, this, false);
+
             e.preventDefault();
             e.stopPropagation();
+        },
+
+        _onMove : function (e) {
+            if (!this.pointerIsDown) { return; }
+
+            var point = param.hasTouch ? e.touches[0] : e,
+                docOrButton = param.hasTouch ? this.el : doc;
+
+            docOrButton.removeEventListener(param.pointerStart, this, false);
+
+            this._handleMove(point.pageX, point.pageY);
+
+            e.preventDefault();
+            e.stopPropagation();
+        },
+
+        _handleMove : function (x, y) {
+            if (x < this.bounds.left      ||
+                    x > this.bounds.right ||
+                    y < this.bounds.top   ||
+                    y > this.bounds.bottom) {
+
+                this.pointerIsInBounds = false;
+                utils.removeClass(this.el, this.hoverStateStyle);
+
+            } else {
+                this.pointerIsInBounds = true;
+                utils.addClass(this.el, this.hoverStateStyle);
+            }
         },
 
         /**
@@ -95,20 +147,26 @@ RCAM.widgets.ViewOptionsBttn = (function (global) {
          * @private
          */
         _onEnd : function (e) {
-            /*var self = this;*/
+
+            var docOrButton = param.hasTouch ? this.el : doc;
+
+            this.pointerIsDown = false;
 
             utils.removeClass(this.el, this.hoverStateStyle);
 
-            if (this.options.persistActiveState) {
+            docOrButton.addEventListener(param.pointerStart, this, false);
+            docOrButton.removeEventListener(param.pointerEnd, this, false);
+            docOrButton.removeEventListener(param.pointerCancel, this, false);
+
+            if (this.options.persistActiveState && this.pointerIsInBounds) {
                 utils.addClass(this.el, this.activeStateStyle);
             }
 
-            this.el.removeEventListener(param.pointerEnd, this, false);
-            this.el.removeEventListener(param.pointerCancel, this, false);
-
-            if (this.options.onPointerEndCallback) {
+            if (this.options.onPointerEndCallback && this.pointerIsInBounds) {
                 this.options.onPointerEndCallback.call(this);
             }
+
+            this.pointerIsInBounds = false;
 
             e.preventDefault();
             e.stopPropagation();
@@ -128,6 +186,20 @@ RCAM.widgets.ViewOptionsBttn = (function (global) {
                     }
                 }
             }
+        },
+
+        _getBounds : function () {
+            var delta = this.options.perimeterDelta,
+                bounds = this.el.getBoundingClientRect();
+
+            return {
+                top    : bounds.top - delta,
+                right  : bounds.right + delta,
+                bottom : bounds.bottom + delta,
+                left   : bounds.left - delta,
+                width  : bounds.right - bounds.left,
+                height : bounds.bottom - bounds.top
+            };
         },
 
         destroy : function () {

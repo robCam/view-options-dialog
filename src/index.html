@@ -94,6 +94,7 @@
     <script src="js/view-options-dialog-bttn.js"></script>
     <script>
 
+window.onload = function() {
     var utils = RCAM.utils,
         paperColorRadiobuttons = [];
 
@@ -174,7 +175,7 @@
     paperColorRadiobuttons.push(paperSepiaBttn);
 
     document.addEventListener('touchmove', function(e) { e.preventDefault(); }, false);
-
+};
     </script>
 </body>
 
