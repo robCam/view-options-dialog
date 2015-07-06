@@ -94,7 +94,10 @@
     <script src="js/view-options-dialog-bttn.js"></script>
     <script>
 
+var RCAM = RCAM || {};
+
 window.onload = function() {
+
     var utils = RCAM.utils,
         paperColorRadioButtons = [];
 
@@ -111,10 +114,10 @@ window.onload = function() {
         });
     
     var paperWhiteBttn = new RCAM.widgets.ViewOptionsBttn('.js-paper-white', {
-            hoverStateStyle  : 'view-options__bttn--hover',
-            activeStateStyle : 'view-options__bttn--active'
-        },
-        { onPointerEndCallback: function() {
+        hoverStateStyle  : 'view-options__bttn--hover',
+        activeStateStyle : 'view-options__bttn--active'
+    }, {
+        onPointerEndCallback: function() {
             var self = this,
                 paper = document.querySelector('.wrapper');
             paperColorRadioButtons.forEach(function (button) {
@@ -129,10 +132,10 @@ window.onload = function() {
     paperColorRadioButtons.push(paperWhiteBttn);
 
     var paperBlackBttn = new RCAM.widgets.ViewOptionsBttn('.js-paper-black', {
-            hoverStateStyle  : 'view-options__bttn--black--hover',
-            activeStateStyle : 'view-options__bttn--active'
-        },
-        { onPointerEndCallback: function() {
+        hoverStateStyle  : 'view-options__bttn--black--hover',
+        activeStateStyle : 'view-options__bttn--active'
+    }, {
+        onPointerEndCallback: function() {
             var self = this,
                 paper = document.querySelector('.wrapper');
             paperColorRadioButtons.forEach(function (button) {
@@ -147,10 +150,10 @@ window.onload = function() {
     paperColorRadioButtons.push(paperBlackBttn);
 
     var paperSepiaBttn = new RCAM.widgets.ViewOptionsBttn('.js-paper-sepia', {
-            hoverStateStyle  : 'view-options__bttn--sepia--hover',
-            activeStateStyle : 'view-options__bttn--active'
-        },
-        { onPointerEndCallback: function() {
+        hoverStateStyle  : 'view-options__bttn--sepia--hover',
+        activeStateStyle : 'view-options__bttn--active'
+    }, {
+        onPointerEndCallback: function() {
             var self = this,
                 paper = document.querySelector('.wrapper');
             paperColorRadioButtons.forEach(function (button) {
