@@ -107,6 +107,7 @@ RCAM.widgets.ViewOptionsBttn = (function (global) {
             docOrButton.addEventListener(param.pointerMove, this, false);
             docOrButton.addEventListener(param.pointerEnd, this, false);
             docOrButton.addEventListener(param.pointerCancel, this, false);
+            this.el.removeEventListener(param.pointerStart, this, false);
 
             e.preventDefault();
             e.stopPropagation();
@@ -117,8 +118,6 @@ RCAM.widgets.ViewOptionsBttn = (function (global) {
 
             var point = param.hasTouch ? e.touches[0] : e,
                 docOrButton = param.hasTouch ? this.el : doc;
-
-            docOrButton.removeEventListener(param.pointerStart, this, false);
 
             this._handleMove(point.pageX, point.pageY);
 
@@ -154,9 +153,10 @@ RCAM.widgets.ViewOptionsBttn = (function (global) {
 
             utils.removeClass(this.el, this.hoverStateStyle);
 
-            docOrButton.addEventListener(param.pointerStart, this, false);
+            this.el.addEventListener(param.pointerStart, this, false);
             docOrButton.removeEventListener(param.pointerEnd, this, false);
             docOrButton.removeEventListener(param.pointerCancel, this, false);
+            docOrButton.removeEventListener(param.pointerMove, this, false);
 
             if (this.options.persistActiveState && this.pointerIsInBounds) {
                 utils.addClass(this.el, this.activeStateStyle);
