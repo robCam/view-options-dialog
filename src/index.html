@@ -96,29 +96,19 @@
 
 window.onload = function() {
     var utils = RCAM.utils,
-        paperColorRadiobuttons = [];
+        paperColorRadioButtons = [];
 
     var fontSmallerBttn = new RCAM.widgets.ViewOptionsBttn('.js-fontsmaller', {
-            hoverStateStyle  : 'view-options__bttn--hover',
-            activeStateStyle : 'view-options__bttn--active'
-        },{
-            persistActiveState: false
-    });
+            hoverStateStyle  : 'view-options__bttn--hover'
+        });
 
     var fontLargerBttn = new RCAM.widgets.ViewOptionsBttn('.js-fontlarger', {
-            hoverStateStyle  : 'view-options__bttn--hover',
-            activeStateStyle : 'view-options__bttn--active'
-        },
-        {
-        persistActiveState: false
-    });
+            hoverStateStyle  : 'view-options__bttn--hover'
+        });
 
     var chosenFontBttn = new RCAM.widgets.ViewOptionsBttn('.js-chosenFont', {
-            hoverStateStyle  : 'view-options__bttn--hover',
-            activeStateStyle : 'view-options__bttn--active'
-        },{
-        persistActiveState: false
-    });
+            hoverStateStyle  : 'view-options__bttn--fontbttn--hover'
+        });
     
     var paperWhiteBttn = new RCAM.widgets.ViewOptionsBttn('.js-paper-white', {
             hoverStateStyle  : 'view-options__bttn--hover',
@@ -127,7 +117,7 @@ window.onload = function() {
         { onPointerEndCallback: function() {
             var self = this,
                 paper = document.querySelector('.wrapper');
-            paperColorRadiobuttons.forEach(function (button) {
+            paperColorRadioButtons.forEach(function (button) {
                 if (button !== self) {
                     utils.removeClass(button.el, 'view-options__bttn--active');
                 }
@@ -136,7 +126,7 @@ window.onload = function() {
         }
     });
 
-    paperColorRadiobuttons.push(paperWhiteBttn);
+    paperColorRadioButtons.push(paperWhiteBttn);
 
     var paperBlackBttn = new RCAM.widgets.ViewOptionsBttn('.js-paper-black', {
             hoverStateStyle  : 'view-options__bttn--black--hover',
@@ -145,7 +135,7 @@ window.onload = function() {
         { onPointerEndCallback: function() {
             var self = this,
                 paper = document.querySelector('.wrapper');
-            paperColorRadiobuttons.forEach(function (button) {
+            paperColorRadioButtons.forEach(function (button) {
                 if (button !== self) {
                     utils.removeClass(button.el, 'view-options__bttn--active');
                 }
@@ -154,7 +144,7 @@ window.onload = function() {
         }
     });
 
-    paperColorRadiobuttons.push(paperBlackBttn);
+    paperColorRadioButtons.push(paperBlackBttn);
 
     var paperSepiaBttn = new RCAM.widgets.ViewOptionsBttn('.js-paper-sepia', {
             hoverStateStyle  : 'view-options__bttn--sepia--hover',
@@ -163,7 +153,7 @@ window.onload = function() {
         { onPointerEndCallback: function() {
             var self = this,
                 paper = document.querySelector('.wrapper');
-            paperColorRadiobuttons.forEach(function (button) {
+            paperColorRadioButtons.forEach(function (button) {
                 if (button !== self) {
                     utils.removeClass(button.el, 'view-options__bttn--active');
                 }
@@ -172,7 +162,7 @@ window.onload = function() {
         }
     });
 
-    paperColorRadiobuttons.push(paperSepiaBttn);
+    paperColorRadioButtons.push(paperSepiaBttn);
 
     document.addEventListener('touchmove', function(e) { e.preventDefault(); }, false);
 };

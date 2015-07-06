@@ -139,7 +139,12 @@
     background: hsl(40, 35%, 70%);
 }
 
+.view-options__bttn--fontbttn--hover {
+    background: hsl(0, 0%, 90%);
+}
+
 .view-options__bttn--active:after,
+.view-options__bttn--fontbttn--hover:after,
 .view-options__bttn--black--hover:after,
 .view-options__bttn--sepia--hover:after,
 .view-options__bttn--hover:after {
@@ -156,3 +161,12 @@
     -webkit-transform: translateZ(0);
             transform: translateZ(0);
 }
+
+.view-options__bttn--fontbttn--hover:after {
+    border: none;
+}
+
+
+
+
+
