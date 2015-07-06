@@ -2,6 +2,27 @@ var RCAM = RCAM || {};
 
 RCAM.widgets = RCAM.widgets || {};
 
+/**
+ * Constructs a custom interactive Button.
+ * @class Button
+ * @constructor
+ * @namespace RCAM.widgets
+ * @requires RCAM.utils, RCAM.param
+ * @param {Object} el A reference for the button element in the DOM.
+ * @param {Object} styles The css stylenames for hover and active states.
+ * @param {Object} options The custom configuration options.
+ * @example
+        var aButton = new RCAM.widgets.Button('.button', {
+            hoverStateStyle  : 'button--hover',
+            activeStateStyle : 'button--active'
+        }, {
+            persistActiveState : true,
+            perimeterDelta : 50,
+            onPointerEndCallback: function() {
+                ...
+            }
+        });
+ */
 RCAM.widgets.Button = (function (global) {
 
     'use strict';
@@ -43,7 +64,7 @@ RCAM.widgets.Button = (function (global) {
         // Merge/replace the user defined options
         this._extend(this.options, options);
 
-
+        // Normalise 'persistActiveState' state
         this.options.persistActiveState = this.activeStateStyle === undefined
             ? false
             : this.options.persistActiveState;
@@ -55,6 +76,7 @@ RCAM.widgets.Button = (function (global) {
          */
         this.el = typeof el === 'string' ? doc.querySelector(el) : el;
 
+        // Get the button bounds
         this.bounds = this._getBounds();
 
         this.pointerIsDown = false;
@@ -114,6 +136,11 @@ RCAM.widgets.Button = (function (global) {
             e.stopPropagation();
         },
 
+        /**
+         * Called when a pointer or touch event moves.
+         * @method _onMove
+         * @private 
+         */
         _onMove : function (e) {
             if (!this.pointerIsDown) { return; }
 
@@ -127,6 +154,11 @@ RCAM.widgets.Button = (function (global) {
             e.stopPropagation();
         },
 
+        /**
+         * Called when a pointer or touch event moves.
+         * @method _handleMove
+         * @private 
+         */
         _handleMove : function (x, y) {
             if (x < this.bounds.left      ||
                     x > this.bounds.right ||
