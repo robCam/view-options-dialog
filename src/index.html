@@ -91,7 +91,7 @@
     <script src="js/param.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/third-party/request-animation-frame.js"></script>
-    <script src="js/view-options-dialog-bttn.js"></script>
+    <script src="js/button.js"></script>
     <script>
 
 var RCAM = RCAM || {};
@@ -101,19 +101,19 @@ window.onload = function() {
     var utils = RCAM.utils,
         paperColorRadioButtons = [];
 
-    var fontSmallerBttn = new RCAM.widgets.ViewOptionsBttn('.js-fontsmaller', {
+    var fontSmallerBttn = new RCAM.widgets.Button('.js-fontsmaller', {
             hoverStateStyle  : 'view-options__bttn--hover'
         });
 
-    var fontLargerBttn = new RCAM.widgets.ViewOptionsBttn('.js-fontlarger', {
+    var fontLargerBttn = new RCAM.widgets.Button('.js-fontlarger', {
             hoverStateStyle  : 'view-options__bttn--hover'
         });
 
-    var chosenFontBttn = new RCAM.widgets.ViewOptionsBttn('.js-chosenFont', {
+    var chosenFontBttn = new RCAM.widgets.Button('.js-chosenFont', {
             hoverStateStyle  : 'view-options__bttn--fontbttn--hover'
         });
     
-    var paperWhiteBttn = new RCAM.widgets.ViewOptionsBttn('.js-paper-white', {
+    var paperWhiteBttn = new RCAM.widgets.Button('.js-paper-white', {
         hoverStateStyle  : 'view-options__bttn--hover',
         activeStateStyle : 'view-options__bttn--active'
     }, {
@@ -131,7 +131,7 @@ window.onload = function() {
 
     paperColorRadioButtons.push(paperWhiteBttn);
 
-    var paperBlackBttn = new RCAM.widgets.ViewOptionsBttn('.js-paper-black', {
+    var paperBlackBttn = new RCAM.widgets.Button('.js-paper-black', {
         hoverStateStyle  : 'view-options__bttn--black--hover',
         activeStateStyle : 'view-options__bttn--active'
     }, {
@@ -149,7 +149,7 @@ window.onload = function() {
 
     paperColorRadioButtons.push(paperBlackBttn);
 
-    var paperSepiaBttn = new RCAM.widgets.ViewOptionsBttn('.js-paper-sepia', {
+    var paperSepiaBttn = new RCAM.widgets.Button('.js-paper-sepia', {
         hoverStateStyle  : 'view-options__bttn--sepia--hover',
         activeStateStyle : 'view-options__bttn--active'
     }, {

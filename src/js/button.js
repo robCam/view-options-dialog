@@ -2,7 +2,7 @@ var RCAM = RCAM || {};
 
 RCAM.widgets = RCAM.widgets || {};
 
-RCAM.widgets.ViewOptionsBttn = (function (global) {
+RCAM.widgets.Button = (function (global) {
 
     'use strict';
 
@@ -14,15 +14,15 @@ RCAM.widgets.ViewOptionsBttn = (function (global) {
         doc   = global.document,
         nextFrame = win.requestAnimFrame;
 
-    function ViewOptionsBttn(el, styles, options) {
+    function Button(el, styles, options) {
 
         /**
          * Ensure the constructor is new-agnostic
-         * Checks the receiver value is a proper instance of ViewOptionsBttn.
+         * Checks the receiver value is a proper instance of Button.
          * This ensures no error if instantiated without 'new' keyword.
          */
-        if (!(this instanceof ViewOptionsBttn)) {
-            return new ViewOptionsBttn(el, options);
+        if (!(this instanceof Button)) {
+            return new Button(el, options);
         }
 
         this.hoverStateStyle  = styles.hoverStateStyle;
@@ -65,9 +65,9 @@ RCAM.widgets.ViewOptionsBttn = (function (global) {
         win.addEventListener(param.resizeEvent, this, false);
     }
 
-    ViewOptionsBttn.prototype = {
+    Button.prototype = {
 
-        constructor: ViewOptionsBttn,
+        constructor: Button,
 
         /**
          * Handles events when they are fired.
@@ -216,6 +216,6 @@ RCAM.widgets.ViewOptionsBttn = (function (global) {
 
     };
 
-    return ViewOptionsBttn;
+    return Button;
 
 }(this));
