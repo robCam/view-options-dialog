@@ -62,6 +62,7 @@ RCAM.widgets.ViewOptionsBttn = (function (global) {
         this.pointerIsInBounds = false;
 
         this.el.addEventListener(param.pointerStart, this, false);
+        win.addEventListener(param.resizeEvent, this, false);
     }
 
     ViewOptionsBttn.prototype = {
@@ -85,8 +86,8 @@ RCAM.widgets.ViewOptionsBttn = (function (global) {
             case param.pointerCancel:
                 this._onEnd(e);
                 break;
-            case param.transitionEnd:
-                this._onTransitionEnd(e);
+            case param.resizeEvent:
+                this._resize(e);
                 break;
             }
         },
@@ -190,7 +191,10 @@ RCAM.widgets.ViewOptionsBttn = (function (global) {
 
         _getBounds : function () {
             var delta = this.options.perimeterDelta,
-                bounds = this.el.getBoundingClientRect();
+                forcePaint = this.el.offsetHeight,
+                bounds;
+
+            bounds = this.el.getBoundingClientRect();
 
             return {
                 top    : bounds.top - delta,
@@ -200,6 +204,10 @@ RCAM.widgets.ViewOptionsBttn = (function (global) {
                 width  : bounds.right - bounds.left,
                 height : bounds.bottom - bounds.top
             };
+        },
+
+        _resize : function () {
+            this.bounds = this._getBounds();
         },
 
         destroy : function () {
