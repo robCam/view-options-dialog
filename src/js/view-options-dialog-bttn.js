@@ -211,6 +211,7 @@ RCAM.widgets.ViewOptionsBttn = (function (global) {
 
         destroy : function () {
             this.el.removeEventListener(param.pointerStart, this, false);
+            win.removeEventListener(param.resizeEvent, this, false);
         }
 
     };
