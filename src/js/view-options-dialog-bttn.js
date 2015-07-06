@@ -117,8 +117,9 @@ RCAM.widgets.ViewOptionsBttn = (function (global) {
         _onMove : function (e) {
             if (!this.pointerIsDown) { return; }
 
-            var point = param.hasTouch ? e.touches[0] : e,
-                docOrButton = param.hasTouch ? this.el : doc;
+            var point = param.hasTouch ? e.touches[0] : e;
+
+            this.el.removeEventListener(param.pointerStart, this, false);
 
             this._handleMove(point.pageX, point.pageY);
 
@@ -192,9 +193,7 @@ RCAM.widgets.ViewOptionsBttn = (function (global) {
         _getBounds : function () {
             var delta = this.options.perimeterDelta,
                 forcePaint = this.el.offsetHeight,
-                bounds;
-
-            bounds = this.el.getBoundingClientRect();
+                bounds = this.el.getBoundingClientRect();
 
             return {
                 top    : bounds.top - delta,
