@@ -13,8 +13,9 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: './src/images/',
-                    // NOTE: We ignore launcher icon as this is handled by grunt 'responsive_images'
-                    src: ['**/*.png', '!**/launcher-icon/**'],
+                    // NOTE: We ignore 'launcher icon' as this is handled by grunt 'responsive_images'.
+                    //       We also ignore 'svg-fallbacks' as they are inline base64.
+                    src: ['**/*.png', '!**/launcher-icon/**', '!**/svg-fallbacks/**'],
                     dest: './dist/images/',
                     ext: '.png'
                 }]
@@ -26,8 +27,9 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: './src/images/',
-                    // NOTE: We ignore launcher icon as this is handled by grunt 'responsive_images'
-                    src: ['**/*.jpg', '!**/launcher-icon/**'],
+                    // NOTE: We ignore 'launcher icon' as this is handled by grunt 'responsive_images'
+                    //       We also ignore 'svg-fallbacks' as they are inline base64.
+                    src: ['**/*.jpg', '!**/launcher-icon/**', '!**/svg-fallbacks/**'],
                     dest: './dist/images/',
                     ext: '.jpg'
                 }]
