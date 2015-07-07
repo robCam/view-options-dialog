@@ -282,7 +282,7 @@ RCAM.widgets.Button = (function (global) {
             docOrButton.removeEventListener(param.pointerMove, this, false);
 
             if (this.options.persistActiveState && this.pointerIsInBounds) {
-                utils.addClass(this.el, this.activeStateStyle);
+                this.setStateActive();
             }
 
             if (this.options.onPointerEndCallback && this.pointerIsInBounds) {
@@ -341,6 +341,26 @@ RCAM.widgets.Button = (function (global) {
          */
         _resize : function () {
             this.bounds = this._getBounds();
+        },
+
+        /**
+         * Sets the buttons 'active' state css style.
+         * @method setStateActive
+         */
+        setStateActive : function () {
+            if (this.options.persistActiveState) {
+                utils.addClass(this.el, this.activeStateStyle);
+            }
+        },
+
+        /**
+         * Sets the buttons 'inactive' state css style.
+         * @method setStateInactive
+         */
+        setStateInactive : function () {
+            if (this.options.persistActiveState) {
+                utils.removeClass(this.el, this.activeStateStyle);
+            }
         },
 
         /**

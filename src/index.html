@@ -81,7 +81,7 @@
                         </svg>
                     </button>
                     <button class="view-options__bttn view-options__bttn--chosenfont js-chosenFont">publisher font</button>
-                    <button class="view-options__bttn view-options__bttn--white view-options__bttn--active js-paper-white">white</button>
+                    <button class="view-options__bttn view-options__bttn--white js-paper-white">white</button>
                     <button class="view-options__bttn view-options__bttn--black js-paper-black">black</button>
                     <button class="view-options__bttn view-options__bttn--sepia js-paper-sepia">sepia</button>
                 </div>
@@ -99,7 +99,7 @@
 var RCAM = RCAM || {};
 
 window.onload = function() {
-
+//localStorage.clear();
     var utils = RCAM.utils,
         paperColorRadioButtons = [];
 
@@ -124,7 +124,15 @@ window.onload = function() {
                 paper = document.querySelector('.wrapper');
             paperColorRadioButtons.forEach(function (button) {
                 if (button !== self) {
-                    utils.removeClass(button.el, 'view-options__bttn--active');
+                    button.setStateInactive();
+                    if (localStorage.getItem('paperWhiteBttnIsActive') === null ||
+                        localStorage.getItem('paperWhiteBttnIsActive') === 'false') {
+                        localStorage.setItem('paperWhiteBttnIsActive', true);
+                    }
+                } else {
+                    localStorage.setItem('paperBlackBttnIsActive', false);
+                    localStorage.setItem('paperWhiteBttnIsActive', true);
+                    localStorage.setItem('paperSepiaBttnIsActive', false);
                 }
             });
             paper.style.background = "hsl(0, 0%, 80%)";
@@ -132,6 +140,11 @@ window.onload = function() {
     });
 
     paperColorRadioButtons.push(paperWhiteBttn);
+    if (localStorage.getItem('paperWhiteBttnIsActive') === 'true') {
+        var paper = document.querySelector('.wrapper');
+        paperWhiteBttn.setStateActive();
+        paper.style.background = "hsl(0, 0%, 80%)";
+    }
 
     var paperBlackBttn = new RCAM.widgets.Button('.js-paper-black', {
         hoverStateStyle  : 'view-options__bttn--black--hover',
@@ -142,7 +155,15 @@ window.onload = function() {
                 paper = document.querySelector('.wrapper');
             paperColorRadioButtons.forEach(function (button) {
                 if (button !== self) {
-                    utils.removeClass(button.el, 'view-options__bttn--active');
+                    button.setStateInactive();
+                    if (localStorage.getItem('paperBlackBttnIsActive') === null ||
+                        localStorage.getItem('paperBlackBttnIsActive') === 'false') {
+                        localStorage.setItem('paperBlackBttnIsActive', true);
+                    }
+                } else {
+                    localStorage.setItem('paperBlackBttnIsActive', true);
+                    localStorage.setItem('paperWhiteBttnIsActive', false);
+                    localStorage.setItem('paperSepiaBttnIsActive', false);
                 }
             });
             paper.style.background = "hsl(0, 0%, 6%)";
@@ -150,6 +171,11 @@ window.onload = function() {
     });
 
     paperColorRadioButtons.push(paperBlackBttn);
+    if (localStorage.getItem('paperBlackBttnIsActive') === 'true') {
+        var paper = document.querySelector('.wrapper');
+        paperBlackBttn.setStateActive();
+        paper.style.background = "hsl(0, 0%, 6%)";
+    }
 
     var paperSepiaBttn = new RCAM.widgets.Button('.js-paper-sepia', {
         hoverStateStyle  : 'view-options__bttn--sepia--hover',
@@ -160,7 +186,15 @@ window.onload = function() {
                 paper = document.querySelector('.wrapper');
             paperColorRadioButtons.forEach(function (button) {
                 if (button !== self) {
-                    utils.removeClass(button.el, 'view-options__bttn--active');
+                    button.setStateInactive();
+                    if (localStorage.getItem('paperSepiaBttnIsActive') === null ||
+                        localStorage.getItem('paperSepiaBttnIsActive') === 'false') {
+                        localStorage.setItem('paperSepiaBttnIsActive', true);
+                    }
+                } else {
+                    localStorage.setItem('paperSepiaBttnIsActive', true);
+                    localStorage.setItem('paperWhiteBttnIsActive', false);
+                    localStorage.setItem('paperBlackBttnIsActive', false);
                 }
             });
             paper.style.background = "hsl(40, 35%, 70%)";
@@ -168,6 +202,11 @@ window.onload = function() {
     });
 
     paperColorRadioButtons.push(paperSepiaBttn);
+    if (localStorage.getItem('paperSepiaBttnIsActive') === 'true') {
+        var paper = document.querySelector('.wrapper');
+        paperSepiaBttn.setStateActive();
+        paper.style.background = "hsl(40, 35%, 70%)";
+    }
 
     document.addEventListener('touchmove', function(e) { e.preventDefault(); }, false);
 };
