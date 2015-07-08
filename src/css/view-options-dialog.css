@@ -23,18 +23,48 @@
  */
 .view-options {
     position: absolute;
-    top: 50px;
+    top: 30px;
     left: 0px;
     width: 320px;
     width: 100%;
-    height: 320px;
+    height: 256px;
     background: hsl(0, 0%, 96%);
-    overflow: hidden;
+    /*overflow: hidden;*/
     border-radius: 14px;
 }
 
 .view-options--shadow {
     box-shadow: 0 0 50px hsla(0, 0%, 0%, .15);
+}
+
+.view-options__bottom-panel {
+    position: relative;
+    top: 236px;
+    height: 188px;
+    right: 0;
+    /*bottom: 0;*/
+    left: 0;
+    border-radius: 0 0 14px 14px;
+    background: hsl(0, 0%, 96%);
+/*background: red;*/
+
+    -webkit-transition: -webkit-transform .300s ease 0s;
+       -moz-transition:    -moz-transform .300s ease 0s;
+         -o-transition:      -o-transform .300s ease 0s;
+            transition:         transform .300s ease 0s;
+
+    will-change: transform;
+    
+    transform: translateY(-168px); /* Opera v.12.16 Build 1860 */
+
+    -webkit-transform: translate3d(0,-168px,0);
+            transform: translate3d(0,-168px,0);
+}
+
+.view-options__bottom-panel--active {
+    transform: translateY(0); /* Opera v.12.16 Build 1860 */
+    -webkit-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
 }
 
 .view-options__title {
@@ -59,14 +89,16 @@
     bottom: 0;
     left: 0;
     padding: 20px;
+    z-index: 2;
 }
 
 .view-options__content__container {
     position: relative;
     width: 280px;
-    height: auto;
+    height: 100%;
     margin: auto;
-    background: red;
+    /*background: red;*/
+/*background: hsla(120, 60%, 60%, .2);*/
 }
 
 .view-options__bttn {
@@ -92,6 +124,36 @@
 .view-options__bttn--chosenfont {
     width: 100%;
     font: 400 18px/40px "Times New Roman", Times, serif;
+    margin-bottom: 0;
+}
+
+.view-options__paper-buttons {
+    position: relative;
+    left: 0;
+    height: 42px;
+    bottom: 0;
+    right: 0;
+/*background: hsla(0, 90%, 80%, .4);*/
+/*-webkit-transform: translateZ(0);
+        transform: translateZ(0);*/
+
+    -webkit-transition: -webkit-transform .300s ease 0s;
+       -moz-transition:    -moz-transform .300s ease 0s;
+         -o-transition:      -o-transform .300s ease 0s;
+            transition:         transform .300s ease 0s;
+
+    will-change: transform;
+    
+    transform: translateY(-168px); /* Opera v.12.16 Build 1860 */
+
+    -webkit-transform: translate3d(0,-168px,0);
+            transform: translate3d(0,-168px,0);
+}
+
+.view-options__paper-buttons--active {
+    transform: translateY(0); /* Opera v.12.16 Build 1860 */
+    -webkit-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
 }
 
 .view-options__bttn--white,
@@ -167,6 +229,132 @@
 }
 
 
+/**
+ *
+ * Revealimg Tray Styles
+ *
+ */
+.tray-reveal {
+    position: relative;
+    display: inline-block;
+    top: -1px;
+    width: 100%;
+    height: 168px;
+    overflow: hidden;
+    /*margin: 0;*/
+    margin-bottom: 16px;
+}
 
+.tray-reveal__mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 
+    -webkit-transition: -webkit-transform .300s ease 0s;
+       -moz-transition:    -moz-transform .300s ease 0s;
+         -o-transition:      -o-transform .300s ease 0s;
+            transition:         transform .300s ease 0s;
+
+    will-change: transform;
+    
+    transform: translateY(-168px); /* Opera v.12.16 Build 1860 */
+
+    -webkit-transform: translate3d(0,-168px,0);
+            transform: translate3d(0,-168px,0);
+
+    overflow: hidden;
+}
+
+.tray-reveal__mask--active {
+    transform: translateY(0); /* Opera v.12.16 Build 1860 */
+
+    -webkit-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
+}
+
+.tray-reveal__mask__content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    background: hsl(0, 0%, 100%);
+    border: 1px solid hsl(0, 0%, 76%);
+    border-radius: 0 0 6px 6px;
+
+    -webkit-transition: -webkit-transform .300s ease 0s;
+       -moz-transition:    -moz-transform .300s ease 0s;
+         -o-transition:      -o-transform .300s ease 0s;
+            transition:         transform .300s ease 0s;
+
+    will-change: transform;
+
+    transform: translateY(168px); /* Opera v.12.16 Build 1860 */
+
+    -webkit-transform: translate3d(0,168px,0);
+            transform: translate3d(0,168px,0);
+/*overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;*/
+}
+
+.tray-reveal__mask__content--active {
+    transform: translateY(0); /* Opera v.12.16 Build 1860 */
+    -webkit-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
+}
+
+/**
+ *
+ * CUSTOM SCROLLBAR FOR TRAY (webkit only).
+ *
+ */
+.tray-reveal__mask__content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.tray-reveal__mask__content::-webkit-scrollbar-track {
+    background: transparent;
+}
+ 
+.tray-reveal__mask__content::-webkit-scrollbar-thumb {
+    background: hsla(0, 0%, 0%, .3);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.font-list {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.font-list__item {
+    position: relative;
+    width: 100%;
+    height: 42px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.font-list__item--Helvetica {
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+.font-list__item--Palatino {
+    font-family: "Palatino", serif;
+}
+
+.font-list__item--TimesNR {
+    font-family: "Times New Roman", serif;
+}
+
+.font-list__item--Publisher {
+    font: 400 18px/18px "Times New Roman", Times, serif;
+}
 
