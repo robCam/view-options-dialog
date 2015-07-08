@@ -89,6 +89,13 @@
                                     <li class="font-list__item font-list__item--Palatino">Palatino</li>
                                     <li class="font-list__item font-list__item--TimesNR">Times New Roman</li>
                                     <li class="font-list__item font-list__item--Publisher">Publisher Font</li>
+                                    <li class="font-list__item font-list__item--Publisher">Another Font</li>
+                                    <li class="font-list__item font-list__item--Publisher">Another Font</li>
+                                    <li class="font-list__item font-list__item--Publisher">Another Font</li>
+                                    <li class="font-list__item font-list__item--Publisher">Another Font</li>
+                                    <li class="font-list__item font-list__item--Publisher">Another Font</li>
+                                    <li class="font-list__item font-list__item--Publisher">Another Font</li>
+                                    <li class="font-list__item font-list__item--Publisher">Another Font</li>
                                 </ul>
                             </div>
                         </div>
@@ -156,12 +163,12 @@
                 }
             });
 
-            fontListBttns.forEach(function(button) {
+            /*fontListBttns.forEach(function(button) {
                 var bttn = new RCAM.widgets.Button(button, {
                     hoverStateStyle: 'view-options__bttn--fontbttn--hover'
                 });
                 listOfFontBttns.push(bttn);
-            });
+            });*/
 
             chosenFontTray = new RCAM.widgets.TrayReveal('.tray-reveal');
 
@@ -266,7 +273,7 @@
             });
 
 
-    
+            fontList.ontouchmove = function(e) { e.stopPropagation(); };
             document.addEventListener('touchmove', function(e) { e.preventDefault(); }, false);
     
             /*setTimeout(function() {

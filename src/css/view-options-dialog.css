@@ -296,9 +296,9 @@
 
     -webkit-transform: translate3d(0,168px,0);
             transform: translate3d(0,168px,0);
-/*overflow-x: hidden;
+overflow-x: hidden;
     overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;*/
+    -webkit-overflow-scrolling: touch;
 }
 
 .tray-reveal__mask__content--active {
