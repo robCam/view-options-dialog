@@ -115,6 +115,7 @@
     font: 400 16px/40px "Helvetica Neue", Helvetica, sans-serif;
     text-transform: capitalize;
     cursor: pointer;
+    overflow: hidden;
 }
 
 .view-options__bttn--fontlarger {
@@ -186,6 +187,7 @@
 
 .view-options__bttn--active {
     /*border: 2px solid hsl(212, 93%, 63%);*/
+    border: 1px solid hsl(212, 100%, 61%);
 }
 
 .view-options__bttn--hover {
@@ -216,9 +218,8 @@
     right: -1px;
     bottom: -1px;
     left: -1px;
-    border: 2px solid hsl(212, 92%, 51%);
+    border: 2px solid hsl(212, 100%, 61%);
     border-radius: 6px;
-    z-index: 2;
 
     -webkit-transform: translateZ(0);
             transform: translateZ(0);
@@ -332,6 +333,9 @@ overflow-x: hidden;
     right: 0;
     bottom: 0;
     left: 0;
+
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
 }
 
 .font-list__item {
