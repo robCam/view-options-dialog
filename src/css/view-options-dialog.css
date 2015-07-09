@@ -23,18 +23,48 @@
  */
 .view-options {
     position: absolute;
-    top: 50px;
+    top: 30px;
     left: 0px;
     width: 320px;
     width: 100%;
-    height: 420px;
+    height: 256px;
     background: hsl(0, 0%, 96%);
-    overflow: hidden;
+    /*overflow: hidden;*/
     border-radius: 14px;
 }
 
 .view-options--shadow {
     box-shadow: 0 0 50px hsla(0, 0%, 0%, .15);
+}
+
+.view-options__bottom-panel {
+    position: relative;
+    top: 236px;
+    height: 188px;
+    right: 0;
+    /*bottom: 0;*/
+    left: 0;
+    border-radius: 0 0 14px 14px;
+    background: hsl(0, 0%, 96%);
+/*background: red;*/
+
+    -webkit-transition: -webkit-transform .300s ease 0s;
+       -moz-transition:    -moz-transform .300s ease 0s;
+         -o-transition:      -o-transform .300s ease 0s;
+            transition:         transform .300s ease 0s;
+
+    will-change: transform;
+    
+    transform: translateY(-168px); /* Opera v.12.16 Build 1860 */
+
+    -webkit-transform: translate3d(0,-168px,0);
+            transform: translate3d(0,-168px,0);
+}
+
+.view-options__bottom-panel--active {
+    transform: translateY(0); /* Opera v.12.16 Build 1860 */
+    -webkit-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
 }
 
 .view-options__title {
@@ -59,6 +89,7 @@
     bottom: 0;
     left: 0;
     padding: 20px;
+    z-index: 2;
 }
 
 .view-options__content__container {
@@ -84,6 +115,7 @@
     font: 400 16px/40px "Helvetica Neue", Helvetica, sans-serif;
     text-transform: capitalize;
     cursor: pointer;
+    overflow: hidden;
 }
 
 .view-options__bttn--fontlarger {
@@ -97,9 +129,9 @@
 }
 
 .view-options__paper-buttons {
-    position: absolute;
+    position: relative;
     left: 0;
-    height: 50px;
+    height: 42px;
     bottom: 0;
     right: 0;
 /*background: hsla(0, 90%, 80%, .4);*/
@@ -155,6 +187,7 @@
 
 .view-options__bttn--active {
     /*border: 2px solid hsl(212, 93%, 63%);*/
+    border: 1px solid hsl(212, 100%, 61%);
 }
 
 .view-options__bttn--hover {
@@ -185,9 +218,8 @@
     right: -1px;
     bottom: -1px;
     left: -1px;
-    border: 2px solid hsl(212, 92%, 51%);
+    border: 2px solid hsl(212, 100%, 61%);
     border-radius: 6px;
-    z-index: 2;
 
     -webkit-transform: translateZ(0);
             transform: translateZ(0);
@@ -210,7 +242,27 @@
     width: 100%;
     height: 168px;
     overflow: hidden;
-    margin: 0;
+    margin-bottom: 16px;
+}
+
+.tray-reveal__mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    -webkit-transition: -webkit-transform .300s ease 0s;
+       -moz-transition:    -moz-transform .300s ease 0s;
+         -o-transition:      -o-transform .300s ease 0s;
+            transition:         transform .300s ease 0s;
+
+    will-change: transform;
+    
+    transform: translateY(-168px); /* Opera v.12.16 Build 1860 */
+
+    -webkit-transform: translate3d(0,-168px,0);
+            transform: translate3d(0,-168px,0);
 }
 
 .tray-reveal__mask {
@@ -264,9 +316,9 @@
 
     -webkit-transform: translate3d(0,168px,0);
             transform: translate3d(0,168px,0);
-/*overflow-x: hidden;
+
     overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;*/
+    -webkit-overflow-scrolling: touch;
 }
 
 .tray-reveal__mask__content--active {
@@ -300,6 +352,9 @@
     right: 0;
     bottom: 0;
     left: 0;
+
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
 }
 
 .font-list__item {
@@ -326,3 +381,8 @@
     font: 400 18px/18px "Times New Roman", Times, serif;
 }
 
+@media screen and (min-width: 768px) {
+    .view-options {
+        width: 320px;
+    }
+}

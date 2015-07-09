@@ -89,6 +89,13 @@
                                     <li class="font-list__item font-list__item--Palatino">Palatino</li>
                                     <li class="font-list__item font-list__item--TimesNR">Times New Roman</li>
                                     <li class="font-list__item font-list__item--Publisher">Publisher Font</li>
+                                    <li class="font-list__item font-list__item--Publisher">Another Font</li>
+                                    <li class="font-list__item font-list__item--Publisher">Another Font</li>
+                                    <li class="font-list__item font-list__item--Publisher">Another Font</li>
+                                    <li class="font-list__item font-list__item--Publisher">Another Font</li>
+                                    <li class="font-list__item font-list__item--Publisher">Another Font</li>
+                                    <li class="font-list__item font-list__item--Publisher">Another Font</li>
+                                    <li class="font-list__item font-list__item--Publisher">Another Font</li>
                                 </ul>
                             </div>
                         </div>
@@ -100,6 +107,7 @@
                     </div>
                 </div>
             </div>
+            <div class="view-options__bottom-panel js-view-options__bottom-panel"></div>
         </div>
     </div>
     <!--build:js js/viewOptionDialog.min.js-->
@@ -133,7 +141,9 @@
                 jsPaperBttnContainer,
     
                 paper = document.querySelector('.wrapper'),
-                paperColorRadioButtons = [];
+                paperColorRadioButtons = [],
+                bottomPanel = document.querySelector('.js-view-options__bottom-panel'),
+                jsBottomPanel;
     
             fontSmallerBttn = new RCAM.widgets.Button('.js-fontsmaller', {
                 hoverStateStyle: 'view-options__bttn--hover'
@@ -149,15 +159,16 @@
                 onPointerEndCallback: function() {
                     chosenFontTray.toggleState();
                     jsPaperBttnContainer.toggleState();
+                    jsBottomPanel.toggleState();
                 }
             });
 
-            fontListBttns.forEach(function(button) {
+            /*fontListBttns.forEach(function(button) {
                 var bttn = new RCAM.widgets.Button(button, {
                     hoverStateStyle: 'view-options__bttn--fontbttn--hover'
                 });
                 listOfFontBttns.push(bttn);
-            });
+            });*/
 
             chosenFontTray = new RCAM.widgets.TrayReveal('.tray-reveal');
 
@@ -255,7 +266,14 @@
                 paperSepiaBttn.setStateActive();
                 paper.style.background = "hsl(40, 35%, 70%)";
             }
-    
+
+            jsBottomPanel = new RCAM.widgets.SlidePanel(bottomPanel,
+                'view-options__bottom-panel--active', {
+                foobar: null
+            });
+
+
+            fontList.ontouchmove = function(e) { e.stopPropagation(); };
             document.addEventListener('touchmove', function(e) { e.preventDefault(); }, false);
     
             /*setTimeout(function() {
