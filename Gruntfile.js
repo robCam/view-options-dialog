@@ -133,11 +133,11 @@ module.exports = function(grunt) {
         /* CONCATENATION and MINIFICATION */
         concat: {
             dist: {
-                src: ['./src/js/param.js', './src/js/utils.js', './src/js/third_party/requestAnimationFrame.js', './src/js/button.js'],
+                src: ['./src/js/third-party/request-animation-frame.js', './src/js/param.js', './src/js/utils.js', './src/js/button.js', './src/js/tray-reveal.js', './src/js/slide-panel.js'],
                 dest: './dist/js/<%= pkg.name %>' + '.min.js'
             },
             docs: {
-                src: ['src/js/param.js', 'src/js/utils.js', 'src/js/third_party/requestAnimationFrame.js', 'src/js/button.js'],
+                src: ['src/js/third-party/request-animation-frame.js', 'src/js/param.js', 'src/js/utils.js', 'src/js/button.js', './src/js/tray-reveal.js', './src/js/slide-panel.js'],
                 dest: './temp/js/<%= pkg.name %>' + '.min.js'
             },
             css: {
