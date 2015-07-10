@@ -21,7 +21,7 @@ RCAM.widgets.SlidePanel = (function (global) {
          * This ensures no error if instantiated without 'new' keyword.
          */
         if (!(this instanceof SlidePanel)) {
-            return new SlidePanel(el, options);
+            return new SlidePanel(el, activeStateStyle, options);
         }
 
         /**
