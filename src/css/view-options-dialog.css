@@ -31,6 +31,7 @@
     background: hsl(0, 0%, 96%);
     /*overflow: hidden;*/
     border-radius: 14px;
+    z-index: 1;
 }
 
 .view-options--shadow {
@@ -363,22 +364,21 @@
     height: 42px;
     text-align: center;
     padding-top: 10px;
+    font-size: 18px;
+    line-height: 18px;
+    overflow: hidden;
+    cursor: pointer;
 }
 
-.font-list__item--Helvetica {
-    font-family: "Helvetica Neue", sans-serif;
-}
-
-.font-list__item--Palatino {
-    font-family: "Palatino", serif;
-}
-
-.font-list__item--TimesNR {
-    font-family: "Times New Roman", serif;
-}
-
-.font-list__item--Publisher {
-    font: 400 18px/18px "Times New Roman", Times, serif;
+.font-list__item:hover:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    bottom: 0;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAAAiElEQVR4Ae3OMQ2GQBBE4ZOAlE0wgBSkYIMKKUhAykk4tqCY8k/2Jn/zJnnFdF8rjDHGGGOMsfUckR3SlrVfk2Mtsp6NrydbDFAj0g/1I7X/I43QPbulsCALUO0SRM/CiVToLKwFqdBZWAtSobOwdaQRqtg60ghVrCK9UH9A/QEFChQoUKBAgb6LD/zrDKeQcAAAAABJRU5ErkJggg==) no-repeat top left;
+    background: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjAiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNDJweCIgaGVpZ2h0PSI0MnB4IiB2aWV3Qm94PSIwIDAgNDIgNDIiPg0KCTxwb2x5Z29uIGZpbGw9IiMzMzk5RkYiIHBvaW50cz0iMjcuMDQ3LDE1LjU2NiAxOS4wNSwyMy41NjMgMTUuODU0LDIwLjM2NiAxMi40NiwyMC4zNjYgMTkuMDUsMjYuOTU3IDMwLjQ0MSwxNS41NjYgIi8+DQo8L3N2Zz4NCg==) no-repeat top left;
 }
 
 @media screen and (min-width: 768px) {

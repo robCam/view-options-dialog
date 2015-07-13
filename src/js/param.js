@@ -9,7 +9,10 @@ RCAM.init = (function (global) {
     var param = RCAM.param,
         doc = global.document,
         win = global.window,
-        nav = global.navigator;
+        installedFontList = [],
+        predefinedFontList = ['Arial', 'Baskerville', 'Droid Serif', 'Georgia',
+                'Helvetica', 'Helvetica Neue', 'Lucida', 'Optima', 'Palatino',
+                'Thonburi', 'Times New Roman', 'Verdana'];
 
     function getPrefix(transitions) {
         var t,
@@ -23,6 +26,41 @@ RCAM.init = (function (global) {
         }
         el = null;
     }
+
+    function doesFontExist(fontName) {
+        var canvas = doc.createElement("canvas"),
+            context = canvas.getContext("2d"),
+            text = "abcdefghijklmnopqrstuvwxyz0123456789",
+            baselineSize,
+            newSize;
+
+        context.font = "72px monospace";
+
+        baselineSize = context.measureText(text).width;
+
+        context.font = "72px '" + fontName + "', monospace";
+
+        newSize = context.measureText(text).width;
+
+        canvas = null;
+
+        if (newSize === baselineSize) {
+            return false;
+        }
+
+        if (newSize !== baselineSize) {
+            return true;
+        }
+    }
+
+    predefinedFontList.forEach(function (font) {
+        var check = doesFontExist(font);
+
+        if (check) {
+            installedFontList.push(font);
+        }
+
+    });
 
     function getDeviceParameters() {
         var hasOrientation = win.hasOwnProperty('onorientationchange'),
@@ -48,6 +86,8 @@ RCAM.init = (function (global) {
 
         param.cssVendorPref = '-' + pre + '-';
         param.jsVendorPref  = pre[0].toUpperCase() + pre.substr(1);
+
+        param.installedFontList = installedFontList;
 
         param.transitionStart = getPrefix({
             'transition'       : 'transitionstart',

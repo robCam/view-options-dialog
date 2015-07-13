@@ -52,6 +52,10 @@ RCAM.widgets.TrayReveal = (function (global) {
 
         this.trayRevealContent = this.trayReveal.querySelector('.tray-reveal__mask__content');
 
+        this.fontList = this.trayRevealContent.querySelector('.font-list');
+
+        this._appendFontList();
+
         this.trayRevealContent.addEventListener(param.transitionEnd, this, false);
     }
 
@@ -99,6 +103,22 @@ RCAM.widgets.TrayReveal = (function (global) {
             if (this.options.onTransitionEnd) {
                 this.options.onTransitionEnd.call(self);
             }
+        },
+
+        _appendFontList : function () {
+            var parentNode = this.fontList;
+
+            param.installedFontList.forEach(function(font) {
+                var li = doc.createElement('li'),
+                    txtNode = doc.createTextNode(font);
+
+                li.className = 'font-list__item';
+                li.setAttribute('data-font', font);
+                li.style.fontFamily = font;
+                li.appendChild(txtNode);
+                parentNode.appendChild(li);
+            });
+
         },
 
         /**

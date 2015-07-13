@@ -217,8 +217,8 @@ RCAM.widgets.Button = (function (global) {
             docOrButton.addEventListener(param.pointerCancel, this, false);
             this.el.removeEventListener(param.pointerStart, this, false);
 
-            e.preventDefault();
-            e.stopPropagation();
+            /*e.preventDefault();
+            e.stopPropagation();*/
         },
 
         /**
@@ -236,8 +236,8 @@ RCAM.widgets.Button = (function (global) {
 
             this._handleMove(point.pageX, point.pageY);
 
-            e.preventDefault();
-            e.stopPropagation();
+            /*e.preventDefault();
+            e.stopPropagation();*/
         },
 
         /**
