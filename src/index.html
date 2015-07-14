@@ -120,7 +120,7 @@
     <script>
 
     (function (window, document, RCAM, localStorage) {
-    
+
         'use strict';
     
         /*jslint nomen:true*/
@@ -193,9 +193,9 @@
                         lineHeight = parseFloat(window.getComputedStyle(mainContent, null).getPropertyValue('line-height'));
 
                     mainContent.style.fontSize = (fontSize - 2) + 'px';
-                    mainContent.style.lineHeight = (lineHeight - 3) + 'px';
+                    mainContent.style.lineHeight = (lineHeight - 4) + 'px';
                     localStorage.setItem('fontSize', fontSize - 2);
-                    localStorage.setItem('lineHeight', lineHeight - 3);
+                    localStorage.setItem('lineHeight', lineHeight - 4);
                 }
             });
     
@@ -207,9 +207,9 @@
                         lineHeight = parseFloat(window.getComputedStyle(mainContent, null).getPropertyValue('line-height'));
 
                     mainContent.style.fontSize = (fontSize + 2) + 'px';
-                    mainContent.style.lineHeight = (lineHeight + 3) + 'px';
+                    mainContent.style.lineHeight = (lineHeight + 4) + 'px';
                     localStorage.setItem('fontSize', fontSize + 2);
-                    localStorage.setItem('lineHeight', lineHeight + 3);
+                    localStorage.setItem('lineHeight', lineHeight + 4);
                 }
             });
     
