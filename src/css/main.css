@@ -17,7 +17,7 @@
 	position: absolute;
 	top: 60px;
 	right: 5%;
-	bottom: 70px;
+	bottom: 90px;
 	left: 5%;
 	padding: 20px;
 	overflow: hidden;
@@ -28,11 +28,18 @@
     -webkit-overflow-scrolling: touch;
 }
 
-.main-content p {
-	text-indent: 1em;
+.main-content h2 {
+	margin-top: 1rem;
+	font: 200 1.25rem/2rem "Helvetica Neue", Helvetica, sans-serif;
+	text-transform: uppercase;
+	color: hsl(339, 100%, 26%);
 }
 
-.main-content p:first-child {
+.main-content p {
+	text-indent: 1rem;
+}
+
+.main-content h2 + p {
 	text-indent: 0;
 }
 
