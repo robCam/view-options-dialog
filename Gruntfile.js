@@ -133,11 +133,11 @@ module.exports = function(grunt) {
         /* CONCATENATION and MINIFICATION */
         concat: {
             dist: {
-                src: ['./src/js/third-party/request-animation-frame.js', './src/js/param.js', './src/js/utils.js', './src/js/button.js', './src/js/tray-reveal.js', './src/js/slide-panel.js'],
+                src: ['src/js/third-party/request-animation-frame.js', 'src/js/param.js', 'src/js/utils.js', 'src/js/button.js', 'src/js/tray-reveal.js', 'src/js/slide-panel.js', 'src/js/setup-dialog.js'],
                 dest: './dist/js/<%= pkg.name %>' + '.min.js'
             },
             docs: {
-                src: ['src/js/third-party/request-animation-frame.js', 'src/js/param.js', 'src/js/utils.js', 'src/js/button.js', './src/js/tray-reveal.js', './src/js/slide-panel.js'],
+                src: ['src/js/third-party/request-animation-frame.js', 'src/js/param.js', 'src/js/utils.js', 'src/js/button.js', 'src/js/tray-reveal.js', 'src/js/slide-panel.js', 'src/js/setup-dialog.js'],
                 dest: './temp/js/<%= pkg.name %>' + '.min.js'
             },
             css: {
@@ -183,6 +183,18 @@ module.exports = function(grunt) {
                     from: /<html([^>]+)>/,
                     to: '<html$1 manifest="manifest.appcache">'
                 }]
+            }
+        },
+
+        htmlmin: {
+            dist: {
+                options: {
+                    removeComments: true,
+                    collapseWhitespace: true
+                },
+                files: {
+                    './dist/index.html': './dist/index.html' //destination : source  !
+                }
             }
         },
 
@@ -276,6 +288,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-yuidoc');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-banner');
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
 
     // Default
@@ -292,7 +305,8 @@ module.exports = function(grunt) {
         'appcache',
         'usebanner:js',
         'usebanner:css',
-        'copy:chromeManifest'
+        'copy:chromeManifest',
+        'htmlmin:dist'
     ]);
 
     // Documentation
