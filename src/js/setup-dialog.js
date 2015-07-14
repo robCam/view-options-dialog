@@ -1,12 +1,12 @@
 var RCAM = RCAM || {};
 
-RCAM.setupButtons = (function (window, document, RCAM, localStorage) {
+RCAM.dialogButtons = (function(window, document, RCAM, localStorage) {
 
     'use strict';
 
     /*jslint nomen:true*/
 
-    window.onload = function() {
+    function init() {
 
         var fontSmallerBttn,
             fontLargerBttn,
@@ -229,10 +229,20 @@ RCAM.setupButtons = (function (window, document, RCAM, localStorage) {
             listOfFontBttns.push(bttn);
         });
 
-        fontList.ontouchmove = function(e) { e.stopPropagation(); };
-        mainContent.ontouchmove = function(e) { e.stopPropagation(); };
-        document.addEventListener('touchmove', function(e) { e.preventDefault(); }, false);
+        fontList.ontouchmove = function(e) {
+            e.stopPropagation();
+        };
+        mainContent.ontouchmove = function(e) {
+            e.stopPropagation();
+        };
+        document.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+        }, false);
 
+    }
+
+    return {
+        init : init
     };
 
 }(this.window, this.document, this.RCAM, this.localStorage));
