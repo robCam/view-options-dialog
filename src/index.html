@@ -176,13 +176,41 @@
             if (localStorage.getItem('fontSetting')) {
                 addStylesheetToHead('.main-content * { font-family: \"' + localStorage.getItem('fontSetting') + '\" !important;}', '#custom-font');
             }
+
+            if (localStorage.getItem('fontSize')) {
+                mainContent.style.fontSize = localStorage.getItem('fontSize') + 'px';
+            }
+
+            if (localStorage.getItem('lineHeight')) {
+                mainContent.style.lineHeight = localStorage.getItem('lineHeight') + 'px';
+            }
     
             fontSmallerBttn = new RCAM.widgets.Button('.js-fontsmaller', {
                 hoverStateStyle: 'view-options__bttn--hover'
+            }, {
+                onPointerEndCallback: function() {
+                    var fontSize = parseFloat(window.getComputedStyle(mainContent, null).getPropertyValue('font-size')),
+                        lineHeight = parseFloat(window.getComputedStyle(mainContent, null).getPropertyValue('line-height'));
+
+                    mainContent.style.fontSize = (fontSize - 2) + 'px';
+                    mainContent.style.lineHeight = (lineHeight - 3) + 'px';
+                    localStorage.setItem('fontSize', fontSize - 2);
+                    localStorage.setItem('lineHeight', lineHeight - 3);
+                }
             });
     
             fontLargerBttn = new RCAM.widgets.Button('.js-fontlarger', {
                 hoverStateStyle: 'view-options__bttn--hover'
+            }, {
+                onPointerEndCallback: function() {
+                    var fontSize = parseFloat(window.getComputedStyle(mainContent, null).getPropertyValue('font-size')),
+                        lineHeight = parseFloat(window.getComputedStyle(mainContent, null).getPropertyValue('line-height'));
+
+                    mainContent.style.fontSize = (fontSize + 2) + 'px';
+                    mainContent.style.lineHeight = (lineHeight + 3) + 'px';
+                    localStorage.setItem('fontSize', fontSize + 2);
+                    localStorage.setItem('lineHeight', lineHeight + 3);
+                }
             });
     
             chosenFontBttn = new RCAM.widgets.Button('.js-chosenFont', {
