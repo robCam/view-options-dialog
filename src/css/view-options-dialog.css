@@ -29,13 +29,12 @@
     width: 100%;
     height: 256px;
     background: hsl(0, 0%, 96%);
-    /*overflow: hidden;*/
     border-radius: 14px;
     z-index: 1;
 }
 
 .view-options--shadow {
-    box-shadow: 0 0 50px hsla(0, 0%, 0%, .15);
+    box-shadow: 0 0 50px hsla(0, 0%, 0%, .2);
 }
 
 .view-options__bottom-panel {
@@ -43,11 +42,9 @@
     top: 236px;
     height: 188px;
     right: 0;
-    /*bottom: 0;*/
     left: 0;
     border-radius: 0 0 14px 14px;
     background: hsl(0, 0%, 96%);
-/*background: red;*/
 
     -webkit-transition: -webkit-transform .300s ease 0s;
        -moz-transition:    -moz-transform .300s ease 0s;
@@ -98,8 +95,6 @@
     width: 280px;
     height: 100%;
     margin: auto;
-    /*background: red;*/
-/*background: hsla(120, 60%, 60%, .2);*/
 }
 
 .view-options__bttn {
@@ -135,9 +130,6 @@
     height: 42px;
     bottom: 0;
     right: 0;
-/*background: hsla(0, 90%, 80%, .4);*/
-/*-webkit-transform: translateZ(0);
-        transform: translateZ(0);*/
 
     -webkit-transition: -webkit-transform .300s ease 0s;
        -moz-transition:    -moz-transform .300s ease 0s;
@@ -166,7 +158,6 @@
 }
 
 .view-options__bttn--white {
-    /*background: hsl(0, 0%, 100%);*/
     background: none;
     color: hsl(0, 0%, 30%);
     border: 1px solid hsl(0, 0%, 76%);
@@ -187,13 +178,11 @@
 }
 
 .view-options__bttn--active {
-    /*border: 2px solid hsl(212, 93%, 63%);*/
     border: 1px solid hsl(212, 100%, 61%);
 }
 
 .view-options__bttn--hover {
     background: hsl(210, 40%, 100%);
-    /*border: 2px solid hsl(212, 93%, 63%);*/
 }
 
 .view-options__bttn--black--hover {
