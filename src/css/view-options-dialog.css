@@ -370,6 +370,71 @@
     background: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjAiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNDJweCIgaGVpZ2h0PSI0MnB4IiB2aWV3Qm94PSIwIDAgNDIgNDIiPg0KCTxwb2x5Z29uIGZpbGw9IiMzMzk5RkYiIHBvaW50cz0iMjcuMDQ3LDE1LjU2NiAxOS4wNSwyMy41NjMgMTUuODU0LDIwLjM2NiAxMi40NiwyMC4zNjYgMTkuMDUsMjYuOTU3IDMwLjQ0MSwxNS41NjYgIi8+DQo8L3N2Zz4NCg==) no-repeat top left;
 }
 
+.view-options--theme-b {
+    background: hsl(0, 0%, 30%);
+}
+
+.view-options--theme-b .view-options__bottom-panel {
+    background: hsl(0, 0%, 30%);
+}
+
+.view-options--theme-b .view-options__title {
+    background: hsl(0, 0%, 55%);
+    border-color: hsl(0, 0%, 55%);
+}
+
+.view-options--theme-b .view-options__bttn {
+    background: hsl(0, 0%, 55%);
+    border: 1px solid hsl(0, 0%, 30%);
+}
+
+.view-options--theme-b .view-options__bttn--fontbttn--hover {
+    background: hsl(0, 0%, 45%);
+    color: hsl(0, 0%, 0%);
+}
+
+.view-options--theme-b .tray-reveal__mask__content {
+    background: hsl(0, 0%, 25%);
+    border-color: hsl(0, 0%, 30%);
+    color: white;
+}
+
+.view-options--theme-b .tray-reveal__mask__content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.view-options--theme-b .tray-reveal__mask__content::-webkit-scrollbar-track {
+    background: transparent;
+}
+ 
+.view-options--theme-b .tray-reveal__mask__content::-webkit-scrollbar-thumb {
+    background: hsl(212, 100%, 61%);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.view-options--theme-b .view-options__bttn--white {
+    background: hsl(0, 0%, 96%);
+}
+
+.view-options--theme-b .view-options__bttn--black {
+    background: hsl(0, 0%, 0%);
+    color: hsl(0, 0%, 100%);
+    border: 1px solid hsl(0, 0%, 35%);
+}
+
+.view-options--theme-b .view-options__bttn--sepia {
+    background: hsl(40, 35%, 70%);
+    color: hsl(0, 0%, 100%);
+    border: 1px solid hsl(40, 35%, 70%);
+    text-shadow: 0 0 2px hsl(40, 35%, 65%);
+    margin-right: 0;
+}
+
+.view-options--theme-b .view-options__title{
+    color: hsl(0, 0%, 0%);
+}
+
 @media screen and (min-width: 768px) {
     .view-options {
         width: 320px;
