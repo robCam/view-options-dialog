@@ -1,0 +1,29 @@
+.main-header {
+	position: fixed;
+	top: 0;
+	right: 0;
+	height: 60px;
+	left: 0;
+	background: hsl(0, 0%, 100%);
+	background: -webkit-linear-gradient(90deg, hsl(0, 0%, 100%) 0%, hsl(0, 0%, 90%) 100%);
+	background:    -moz-linear-gradient(90deg, hsl(0, 0%, 100%) 0%, hsl(0, 0%, 90%) 100%);
+	background:         linear-gradient(0deg,  hsl(0, 0%, 100%) 0%, hsl(0, 0%, 90%) 100%);
+	overflow: hidden;
+}
+
+.main-header__view-opts__bttn {
+	position: absolute;
+	top: 0px;
+	left: 40px;
+    width: 60px;
+    bottom: 0;
+    background: hsla(0, 0%, 0%, 0.01);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.main-header__view-opts__bttn--active svg path {
+	fill: hsl(0, 0%, 50%);
+}
