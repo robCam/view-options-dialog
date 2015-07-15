@@ -133,15 +133,15 @@ module.exports = function(grunt) {
         /* CONCATENATION and MINIFICATION */
         concat: {
             dist: {
-                src: ['src/js/third-party/request-animation-frame.js', 'src/js/param.js', 'src/js/utils.js', 'src/js/button.js', 'src/js/tray-reveal.js', 'src/js/slide-panel.js', 'src/js/setup-dialog.js'],
+                src: ['src/js/third-party/request-animation-frame.js', 'src/js/param.js', 'src/js/utils.js', 'src/js/button.js', 'src/js/tray-reveal.js', 'src/js/slide-panel.js', 'src/js/popup-dialog.js', 'src/js/setup-dialog.js'],
                 dest: './dist/js/<%= pkg.name %>' + '.min.js'
             },
             docs: {
-                src: ['src/js/third-party/request-animation-frame.js', 'src/js/param.js', 'src/js/utils.js', 'src/js/button.js', 'src/js/tray-reveal.js', 'src/js/slide-panel.js', 'src/js/setup-dialog.js'],
+                src: ['src/js/third-party/request-animation-frame.js', 'src/js/param.js', 'src/js/utils.js', 'src/js/button.js', 'src/js/tray-reveal.js', 'src/js/slide-panel.js', 'src/js/popup-dialog.js', 'src/js/setup-dialog.js'],
                 dest: './temp/js/<%= pkg.name %>' + '.min.js'
             },
             css: {
-                src: ['src/css/reset.css', 'src/css/main.css', 'src/css/view-options-dialog.css'],
+                src: ['src/css/reset.css', 'src/css/main.css', 'src/css/main-header.css', 'src/css/view-options-dialog.css'],
                 dest: './dist/css/style.min.css'
             }
         },
