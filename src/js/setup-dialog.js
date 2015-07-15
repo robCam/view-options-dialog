@@ -8,7 +8,8 @@ RCAM.dialogButtons = (function(window, document, RCAM, localStorage) {
 
     function init() {
 
-        var fontSmallerBttn,
+        var utils = RCAM.utils,
+            fontSmallerBttn,
             fontLargerBttn,
             chosenFontBttn,
             paperWhiteBttn,
@@ -21,6 +22,8 @@ RCAM.dialogButtons = (function(window, document, RCAM, localStorage) {
 
             paperBttnContainer = document.querySelector('.js-view-options__paper-buttons'),
             jsPaperBttnContainer,
+
+            viewOptionsDialog = document.querySelector('.view-options'), 
 
             paper = document.querySelector('.wrapper'),
             paperColorRadioButtons = [],
@@ -50,6 +53,7 @@ RCAM.dialogButtons = (function(window, document, RCAM, localStorage) {
 
         if (localStorage.getItem('paperBlackBttnIsActive') === 'true') {
             addStylesheetToHead('.main-content * { color: hsl(0, 0%, 100%) !important; }', '#background-color');
+            utils.addClass(viewOptionsDialog, 'view-options--theme-b');
         } else if (localStorage.getItem('paperSepiaBttnIsActive') === 'true') {
             addStylesheetToHead('.main-content * { color: hsl(40, 65%, 20%) !important; }', '#background-color');
         }
@@ -132,6 +136,7 @@ RCAM.dialogButtons = (function(window, document, RCAM, localStorage) {
                             localStorage.setItem('paperWhiteBttnIsActive', true);
                         }
                     } else {
+                        utils.removeClass(viewOptionsDialog, 'view-options--theme-b');
                         localStorage.setItem('paperBlackBttnIsActive', false);
                         localStorage.setItem('paperWhiteBttnIsActive', true);
                         localStorage.setItem('paperSepiaBttnIsActive', false);
@@ -163,6 +168,7 @@ RCAM.dialogButtons = (function(window, document, RCAM, localStorage) {
                             localStorage.setItem('paperBlackBttnIsActive', true);
                         }
                     } else {
+                        utils.addClass(viewOptionsDialog, 'view-options--theme-b');
                         localStorage.setItem('paperBlackBttnIsActive', true);
                         localStorage.setItem('paperWhiteBttnIsActive', false);
                         localStorage.setItem('paperSepiaBttnIsActive', false);
@@ -194,6 +200,7 @@ RCAM.dialogButtons = (function(window, document, RCAM, localStorage) {
                             localStorage.setItem('paperSepiaBttnIsActive', true);
                         }
                     } else {
+                        utils.removeClass(viewOptionsDialog, 'view-options--theme-b');
                         localStorage.setItem('paperSepiaBttnIsActive', true);
                         localStorage.setItem('paperWhiteBttnIsActive', false);
                         localStorage.setItem('paperBlackBttnIsActive', false);

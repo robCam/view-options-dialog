@@ -431,8 +431,12 @@
     margin-right: 0;
 }
 
-.view-options--theme-b .view-options__title{
+.view-options--theme-b .view-options__title {
     color: hsl(0, 0%, 0%);
+}
+
+.view-options--theme-b svg path {
+    fill: hsl(0, 0%, 0%);
 }
 
 @media screen and (min-width: 768px) {
