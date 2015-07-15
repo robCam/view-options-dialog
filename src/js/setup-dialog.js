@@ -49,13 +49,16 @@ RCAM.dialogButtons = (function(window, document, RCAM, localStorage) {
                     head.appendChild(style);
                 }
 
-            };
+            },
+            overrideStyleID = '#theme-override',
+            blackOverrideStyle = '.main-content * { color: hsl(0, 0%, 100%) !important; } .main-header { background: hsl(0, 0%, 15%); background: -webkit-linear-gradient(90deg, hsl(0, 0%, 10%) 0%, hsl(0, 0%, 15%) 100%) !important; background: -moz-linear-gradient(90deg, hsl(0, 0%, 10%) 0%, hsl(0, 0%, 15%) 100%) !important; background: linear-gradient(0deg,  hsl(0, 0%, 10%) 0%, hsl(0, 0%, 15%) 100%) !important; }',
+            sepiaOverrideStyle = '.main-content * { color: hsl(40, 65%, 20%) !important; } .main-header { background: hsl(40, 35%, 60%); background: -webkit-linear-gradient(90deg, hsl(40, 35%, 75%) 0%, hsl(40, 35%, 60%) 100%) !important; background: -moz-linear-gradient(90deg, hsl(40, 35%, 75%) 0%, hsl(40, 35%, 60%) 100%) !important; background: linear-gradient(0deg,  hsl(40, 35%, 75%) 0%, hsl(40, 35%, 60%) 100%) !important;}';
 
         if (localStorage.getItem('paperBlackBttnIsActive') === 'true') {
-            addStylesheetToHead('.main-content * { color: hsl(0, 0%, 100%) !important; }', '#background-color');
+            addStylesheetToHead(blackOverrideStyle, overrideStyleID);
             utils.addClass(viewOptionsDialog, 'view-options--theme-b');
         } else if (localStorage.getItem('paperSepiaBttnIsActive') === 'true') {
-            addStylesheetToHead('.main-content * { color: hsl(40, 65%, 20%) !important; }', '#background-color');
+            addStylesheetToHead(sepiaOverrideStyle, overrideStyleID);
         }
 
         if (localStorage.getItem('fontSetting')) {
@@ -142,7 +145,7 @@ RCAM.dialogButtons = (function(window, document, RCAM, localStorage) {
                         localStorage.setItem('paperSepiaBttnIsActive', false);
                     }
                 });
-                addStylesheetToHead('', '#background-color');
+                addStylesheetToHead('', overrideStyleID);
                 paper.style.background = "hsl(0, 0%, 80%)";
             }
         });
@@ -174,7 +177,7 @@ RCAM.dialogButtons = (function(window, document, RCAM, localStorage) {
                         localStorage.setItem('paperSepiaBttnIsActive', false);
                     }
                 });
-                addStylesheetToHead('.main-content * { color: white !important;}', '#background-color');
+                addStylesheetToHead(blackOverrideStyle, overrideStyleID);
                 paper.style.background = "hsl(0, 0%, 6%)";
             }
         });
@@ -206,7 +209,7 @@ RCAM.dialogButtons = (function(window, document, RCAM, localStorage) {
                         localStorage.setItem('paperBlackBttnIsActive', false);
                     }
                 });
-                addStylesheetToHead('.main-content * { color: hsl(40, 65%, 20%) !important;}', '#background-color');
+                addStylesheetToHead(sepiaOverrideStyle, overrideStyleID);
                 paper.style.background = "hsl(40, 35%, 70%)";
             }
         });
