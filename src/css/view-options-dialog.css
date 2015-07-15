@@ -408,7 +408,7 @@
 }
  
 .view-options--theme-b .tray-reveal__mask__content::-webkit-scrollbar-thumb {
-    background: hsl(212, 100%, 61%);
+    background: hsl(212, 100%, 51%);
     border-radius: 4px;
     cursor: pointer;
 }
@@ -437,6 +437,13 @@
 
 .view-options--theme-b svg path {
     fill: hsl(0, 0%, 0%);
+}
+
+.view-options--theme-b ~ .main-content::-webkit-scrollbar-thumb {
+    /*background: hsla(0, 0%, 0%, .3);*/
+    background: hsl(212, 100%, 51%);
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
