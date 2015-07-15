@@ -3,29 +3,53 @@
  * Main styles
  *
  */
+
+body {
+	background: hsl(0, 0%, 0%);
+	height: 100%;
+}
+
 .wrapper {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background: hsl(0, 0%, 80%);
+    /*background: hsl(0, 0%, 96%);*/
     overflow: hidden;
 }
 
 .main-content {
 	position: absolute;
-	top: 80px;
+	top: 60px;
 	right: 0;
-	bottom: 90px;
-	left: 5%;
-	padding: 20px 8% 20px 20px;
+	bottom: 0px;
+	left: 0;
+	padding: 20px 8% 20px 5%;
+	background: hsl(0, 0%, 96%);
 	overflow: hidden;
 	font-size: 16px;
 	line-height: 32px;
 	font-family: 'Times New Roman';
 	overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
+
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+
+    will-change: opacity;
+
+    -webkit-transition: opacity .400s ease 0s;
+       -moz-transition: opacity .400s ease 0s;
+            transition: opacity .400s ease 0s;
+}
+
+.main-content--dimmed {
+	opacity: 0.75;
+}
+
+.view-options--theme-b ~ .main-content--dimmed {
+	opacity: 0.4;
 }
 
 .main-content h2 {
@@ -63,20 +87,17 @@
 }
 
 @media screen and (max-device-width: 320px) {
-	.main-header {
-		height: 50px;
-	}
     .main-content {
-	position: absolute;
-	top: 50px;
-	right: 0px;
-	bottom: 0px;
-	left: 0px;
-	/*padding: 20px;*/
-	overflow: hidden;
-	/*line-height: 28px;*/
-	font-family: 'Times New Roman';
-	overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
+		position: absolute;
+		top: 50px;
+		right: 0px;
+		bottom: 0px;
+		left: 0px;
+		/*padding: 20px;*/
+		overflow: hidden;
+		/*line-height: 28px;*/
+		font-family: 'Times New Roman';
+		overflow-y: scroll;
+    	-webkit-overflow-scrolling: touch;
 	}
 }

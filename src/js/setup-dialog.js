@@ -146,14 +146,14 @@ RCAM.dialogButtons = (function(window, document, RCAM, localStorage) {
                     }
                 });
                 addStylesheetToHead('', overrideStyleID);
-                paper.style.background = "hsl(0, 0%, 80%)";
+                mainContent.style.background = "hsl(0, 0%, 96%)";
             }
         });
 
         paperColorRadioButtons.push(paperWhiteBttn);
         if (localStorage.getItem('paperWhiteBttnIsActive') === 'true') {
             paperWhiteBttn.setStateActive();
-            paper.style.background = "hsl(0, 0%, 80%)";
+            mainContent.style.background = "hsl(0, 0%, 96%)";
         }
 
         paperBlackBttn = new RCAM.widgets.Button('.js-paper-black', {
@@ -178,14 +178,14 @@ RCAM.dialogButtons = (function(window, document, RCAM, localStorage) {
                     }
                 });
                 addStylesheetToHead(blackOverrideStyle, overrideStyleID);
-                paper.style.background = "hsl(0, 0%, 6%)";
+                mainContent.style.background = "hsl(0, 0%, 6%)";
             }
         });
 
         paperColorRadioButtons.push(paperBlackBttn);
         if (localStorage.getItem('paperBlackBttnIsActive') === 'true') {
             paperBlackBttn.setStateActive();
-            paper.style.background = "hsl(0, 0%, 6%)";
+            mainContent.style.background = "hsl(0, 0%, 6%)";
         }
 
         paperSepiaBttn = new RCAM.widgets.Button('.js-paper-sepia', {
@@ -210,14 +210,14 @@ RCAM.dialogButtons = (function(window, document, RCAM, localStorage) {
                     }
                 });
                 addStylesheetToHead(sepiaOverrideStyle, overrideStyleID);
-                paper.style.background = "hsl(40, 35%, 70%)";
+                mainContent.style.background = "hsl(40, 35%, 70%)";
             }
         });
 
         paperColorRadioButtons.push(paperSepiaBttn);
         if (localStorage.getItem('paperSepiaBttnIsActive') === 'true') {
             paperSepiaBttn.setStateActive();
-            paper.style.background = "hsl(40, 35%, 70%)";
+            mainContent.style.background = "hsl(40, 35%, 70%)";
         }
 
         jsBottomPanel = new RCAM.widgets.SlidePanel(bottomPanel,

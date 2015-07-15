@@ -1,4 +1,5 @@
 .main-header {
+	position: absolute;
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -14,10 +15,10 @@
 .main-header__view-opts__bttn {
 	position: absolute;
 	top: 0px;
-	left: 40px;
+	left: 5%;
     width: 60px;
     bottom: 0;
-    background: hsla(0, 0%, 0%, 0.01);
+    background: hsla(0, 0%, 0%, 0.001);
     border: none;
     outline: none;
     cursor: pointer;
@@ -26,4 +27,11 @@
 
 .main-header__view-opts__bttn--active svg path {
 	fill: hsl(0, 0%, 50%);
+}
+
+@media screen and (max-device-width: 320px) {
+	.main-header {
+		height: 50px;
+	}
+
 }
