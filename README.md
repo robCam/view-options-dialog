@@ -4,7 +4,7 @@
 
 This is single page web app to demonstrate a JavaScript prototype for a view options dialog for an app/e-reader.
 
-It's all hand crafted custom code and does not use any JS framework. Works on mobile too.
+It's all hand crafted custom code and does not use any JS framework.
 
 Further documentation for usage, showing configuration options, js methods etc, can be generated using grunt (see below);
 
@@ -17,7 +17,7 @@ You'll need to:
 
 ## Demo
 
-Online demo example can be found [here.](http://robcam.github.io/demos/view-options-dialog/)
+Online demo example for mobile and desktop can be found [here.](http://robcam.github.io/demos/view-options-dialog/)
 
 ## License (MIT)
 
