@@ -1,0 +1,103 @@
+/**
+ *
+ * Main styles
+ *
+ */
+
+body {
+	background: hsl(0, 0%, 0%);
+	height: 100%;
+}
+
+.wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /*background: hsl(0, 0%, 96%);*/
+    overflow: hidden;
+}
+
+.main-content {
+	position: absolute;
+	top: 60px;
+	right: 0;
+	bottom: 0px;
+	left: 0;
+	padding: 20px 8% 20px 5%;
+	background: hsl(0, 0%, 96%);
+	overflow: hidden;
+	font-size: 16px;
+	line-height: 32px;
+	font-family: 'Times New Roman';
+	overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+
+    will-change: opacity;
+
+    -webkit-transition: opacity .400s ease 0s;
+       -moz-transition: opacity .400s ease 0s;
+            transition: opacity .400s ease 0s;
+}
+
+.main-content--dimmed {
+	opacity: 0.75;
+}
+
+.view-options--theme-b ~ .main-content--dimmed {
+	opacity: 0.4;
+}
+
+.main-content h2 {
+	margin-top: 1rem;
+	font: 200 1.25rem/2rem "Helvetica Neue", Helvetica, sans-serif;
+	text-transform: uppercase;
+	color: hsl(339, 100%, 26%);
+}
+
+.main-content p {
+	text-indent: 1rem;
+}
+
+.main-content h2 + p {
+	text-indent: 0;
+}
+
+/**
+ *
+ * CUSTOM SCROLLBAR FOR TRAY (webkit only).
+ *
+ */
+.main-content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.main-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+ 
+.main-content::-webkit-scrollbar-thumb {
+    background: hsla(0, 0%, 0%, .3);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+@media screen and (max-device-width: 320px) {
+    .main-content {
+		position: absolute;
+		top: 50px;
+		right: 0px;
+		bottom: 0px;
+		left: 0px;
+		/*padding: 20px;*/
+		overflow: hidden;
+		/*line-height: 28px;*/
+		font-family: 'Times New Roman';
+		overflow-y: scroll;
+    	-webkit-overflow-scrolling: touch;
+	}
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<!--
+*
+*  Copyright 2015 Robert Campbell. All rights reserved.
+* 
+*  Licensed under the Apache License, Version 2.0 (the "License");
+*  you may not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+*  http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing, software
+*  distributed under the License is distributed on an "AS IS" BASIS,
+*  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+*  See the License for the specific language governing permissions and
+*  limitations under the License.
+*
+*-->
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>viewOptions</title>
+    <meta name="author" content="Rob Campbell" />
+    <meta name="description" content="a view options interface" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Manifest for web applications: https://w3c.github.io/manifest/ -->
+    <link rel="manifest" href="manifest.json" />
+
+    <!-- Add to homescreen and theme color for Android Chrome -->
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- Chrome for Android color theme -->
+    <meta id="theme-color" name="theme-color" content="#000" />
+
+    <!-- Add to homescreen for iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="viewOptions" />
+
+    <!-- Homescreen touch icons for iOS -->
+    <link rel="apple-touch-icon" href="images/launcher-icons/icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="images/launcher-icons/icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="images/launcher-icons/icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="images/launcher-icons/icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/launcher-icons/icon-180x180.png" />
+
+    <!--build:css css/style.min.css-->
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/main-header.css" />
+    <link rel="stylesheet" type="text/css" href="css/view-options-dialog.css" />
+    <!--/build-->
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="main-header">
+            <button class="main-header__view-opts__bttn js-view-opts-bttn">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="80px" height="38px" viewBox="-5 -12 88 42" aria-labelledby="view-opt-bttn">
+                    <title id="view-opt-bttn">font size larger</title>
+                    <path fill="hsl(212, 100%, 51%)" d="M8.017,13.538L5.966,19.75H3.328L10.039,0h3.077l6.74,19.75h-2.725l-2.11-6.212H8.017z M14.493,11.545L12.529,5.86c-0.41-1.29-0.703-2.461-0.996-3.604h-0.088c-0.264,1.143-0.586,2.374-0.967,3.575l-1.934,5.714H14.493z"/>
+                    <path fill="hsl(212, 100%, 51%)" d="M28.514,17.119c0,0.952,0.045,1.883,0.158,2.631h-1.793l-0.181-1.384H26.63c-0.59,0.862-1.792,1.633-3.357,1.633c-2.223,0-3.357-1.564-3.357-3.153c0-2.654,2.359-4.105,6.602-4.083v-0.227c0-0.907-0.25-2.563-2.496-2.541c-1.044,0-2.109,0.295-2.88,0.817l-0.455-1.338c0.908-0.567,2.246-0.954,3.63-0.954c3.38,0,4.196,2.291,4.196,4.491v4.107H28.514zM26.562,14.146c-2.178-0.045-4.65,0.342-4.65,2.473c0,1.315,0.861,1.906,1.859,1.906c1.451,0,2.382-0.907,2.7-1.838c0.067-0.203,0.091-0.431,0.091-0.635V14.146z"/>
+                    <foreignObject>
+                        <img width="23" height="18" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAASCAMAAACHObUhAAAANlBMVEUAAAAAZv8AZv8AZv8AZv8AZv8AZv8AZv8AZv8AZv8AZv8AZv8AZv8AZv8AZv8AZv8AZv8AZv9g88jpAAAAEnRSTlMAQP8wAJ+P799QcBCvYIDPvyDVR4imAAAAnUlEQVR42m2PWw7DIAwEYQglvMn9L1tjpQIl3Q8EIzFeG40F3LHH6OmBzx8eCJxvHiFBfHHPmcG/eBB5ITx5nGUqxAf3c+ZPlGNrUblqjlvkAkDPwqvudItyic52vPACQ9JXI8dpRLySJ0ytgJn/k535QD3yALrwVfyCIq8uw4Rvi3bI06V82ydBhUsvZts/Qxn05hG+NNrYDgh18AU25gfvZccDhQAAAABJRU5ErkJggg=="/>
+                    </foreignObject>
+                </svg>
+            </button>
+        </header>
+        <div class="view-options view-options--shadow js-popup-dialog" role="dialog" aria-labelledby="dialog-box">
+            <div id="dialog-box" class="view-options__title">view options</div>
+            <div class="view-options__content">
+                <div class="view-options__content__container">
+                    <button class="view-options__bttn view-options__bttn--fontsmaller js-fontsmaller">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="136px" height="28px" viewBox="-10 -18 88 42" aria-labelledby="font-smaller">
+                            <title id="font-smaller">font size smaller</title>
+                            <path fill="hsl(0, 0%, 30%)" d="M8.017,13.538L5.966,19.75H3.328L10.039,0h3.077l6.74,19.75h-2.725l-2.11-6.212H8.017z M14.493,11.545L12.529,5.86c-0.41-1.29-0.703-2.461-0.996-3.604h-0.088c-0.264,1.143-0.586,2.374-0.967,3.575l-1.934,5.714H14.493z"/>
+                            <path fill="hsl(0, 0%, 30%)" d="M28.514,17.119c0,0.952,0.045,1.883,0.158,2.631h-1.793l-0.181-1.384H26.63c-0.59,0.862-1.792,1.633-3.357,1.633c-2.223,0-3.357-1.564-3.357-3.153c0-2.654,2.359-4.105,6.602-4.083v-0.227c0-0.907-0.25-2.563-2.496-2.541c-1.044,0-2.109,0.295-2.88,0.817l-0.455-1.338c0.908-0.567,2.246-0.954,3.63-0.954c3.38,0,4.196,2.291,4.196,4.491v4.107H28.514zM26.562,14.146c-2.178-0.045-4.65,0.342-4.65,2.473c0,1.315,0.861,1.906,1.859,1.906c1.451,0,2.382-0.907,2.7-1.838c0.067-0.203,0.091-0.431,0.091-0.635V14.146z"/>
+                            <foreignObject>
+                                <img width="16" height="13" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAANCAQAAAAKsiavAAAAoElEQVR4AXWQMQ6CQBBFv7b2a09PjzW99NvKAbant/cA9NtzCONVPIUvP+sGI7xxmExmJg9RIWghRv1xLPVSnzs8uL+TjTYJHg+WbCpa8qXnvmTiNghRlXSKRC9z0sIILIlVOX2VvdtIpLoaBPT5YEGnNTe9EV1ZOpMWzHU40g1qy79KVAtsMo0lqZxEOr/KWjGXT9YSmcovC34kyWtZKD6tzjDgyjXsqQAAAABJRU5ErkJggg=="/>
+                            </foreignObject>
+                        </svg>
+                    </button>
+                    <button class="view-options__bttn view-options__bttn--fontlarger js-fontlarger">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="136px" height="38px" viewBox="-10 -12 88 42" aria-labelledby="font-larger">
+                            <title id="font-larger">font size larger</title>
+                            <path fill="hsl(0, 0%, 30%)" d="M8.017,13.538L5.966,19.75H3.328L10.039,0h3.077l6.74,19.75h-2.725l-2.11-6.212H8.017z M14.493,11.545L12.529,5.86c-0.41-1.29-0.703-2.461-0.996-3.604h-0.088c-0.264,1.143-0.586,2.374-0.967,3.575l-1.934,5.714H14.493z"/>
+                            <path fill="hsl(0, 0%, 30%)" d="M28.514,17.119c0,0.952,0.045,1.883,0.158,2.631h-1.793l-0.181-1.384H26.63c-0.59,0.862-1.792,1.633-3.357,1.633c-2.223,0-3.357-1.564-3.357-3.153c0-2.654,2.359-4.105,6.602-4.083v-0.227c0-0.907-0.25-2.563-2.496-2.541c-1.044,0-2.109,0.295-2.88,0.817l-0.455-1.338c0.908-0.567,2.246-0.954,3.63-0.954c3.38,0,4.196,2.291,4.196,4.491v4.107H28.514zM26.562,14.146c-2.178-0.045-4.65,0.342-4.65,2.473c0,1.315,0.861,1.906,1.859,1.906c1.451,0,2.382-0.907,2.7-1.838c0.067-0.203,0.091-0.431,0.091-0.635V14.146z"/>
+                            <foreignObject>
+                                <img width="23" height="18" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAASCAQAAAAa7o2YAAAA50lEQVR4AYXRoW7DQAzG8d+qsuPjCw+eR9cHKJ2K+wDlwRs/vgcID+2Kw8fzAOXh08wqRbrPkn1nf7L+ugOA3pTRwbZ2ADgA3qFtD6x4o61IkGPmaG8P3F1BaGo0OWMwGVvbQ8ENM4po2blbMIMAUISTk9hC4RGny0mGqgCHh+/JmwDFIHR61eSyBwHOgALCjNUnoKr6JxQjAAD4sELuLl4EewT4tgB4dUT4SZgeLGDzpZ+TfpAzVQfZU7JcAAA1u0VmkPadADMA4AYCFHCEtFvNAIArCL8YnFycwSYKDDnpfWUdHf5Pf6QGS2iBNRYSAAAAAElFTkSuQmCC"/>
+                            </foreignObject>
+                        </svg>
+                    </button>
+                    <button class="view-options__bttn view-options__bttn--chosenfont js-chosenFont">publisher font</button>
+                    <div class="tray-reveal js-tray-reveal">
+                        <div class="tray-reveal__mask">
+                            <div class="tray-reveal__mask__content">
+                                <ul class="font-list js-font-list">
+                                    <li class="font-list__item" data-font="publisher-font">Publisher Font</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="view-options__paper-buttons js-view-options__paper-buttons">
+                        <button class="view-options__bttn view-options__bttn--white js-paper-white">white</button>
+                        <button class="view-options__bttn view-options__bttn--black js-paper-black">black</button>
+                        <button class="view-options__bttn view-options__bttn--sepia js-paper-sepia">sepia</button>
+                    </div>
+                </div>
+            </div>
+            <div class="view-options__bottom-panel js-view-options__bottom-panel"></div>
+        </div>
+        <div class="main-content" role="main">
+            <h2>The first heading</h2>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+            <h2>The second heading</h2>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+        </div>
+    </div>
+    <!--build:js js/viewOptionDialog.min.js-->
+    <script src="js/param.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/third-party/request-animation-frame.js"></script>
+    <script src="js/button.js"></script>
+    <script src="js/tray-reveal.js"></script>
+    <script src="js/slide-panel.js"></script>
+    <script src="js/popup-dialog.js"></script>
+    <script src="js/setup-dialog.js"></script>
+    <!--/build-->
+    <script>
+        window.onload = function() {
+            var optsBttn,
+                popupDialog;
+
+        popupDialog = new RCAM.widgets.PopupDialog('.js-popup-dialog', {
+            onToggleState: function() {
+                var utils = utils = RCAM.utils,
+                    mainContent = document.querySelector('.main-content');
+                utils.toggleClass(mainContent, 'main-content--dimmed');
+            }
+        });
+
+        optsBttn = new RCAM.widgets.Button('.js-view-opts-bttn', {
+                hoverStateStyle: 'main-header__view-opts__bttn--active'
+        }, {
+            onPointerEndCallback: function() {
+                popupDialog.toggleState();
+            }
+        });
+            //localStorage.clear();
+            RCAM.dialogButtons.init();
+        }
+    </script>
+</body>
+
+</html>
+
