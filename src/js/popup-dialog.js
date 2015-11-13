@@ -32,7 +32,8 @@ RCAM.widgets.PopupDialog = (function (global) {
          * @type Object
          */
         this.options = {
-            onToggleState : null
+            onToggleState : null,
+            onTransitionEndCallback: undefined
         };
 
         // Merge/replace the user defined options
@@ -48,8 +49,8 @@ RCAM.widgets.PopupDialog = (function (global) {
         this.el = typeof el === 'string' ? doc.querySelector(el) : el;
 
         /*this.el.addEventListener(param.pointerStart, this, false);
-        this.el.addEventListener(param.pointerEnd, this, false);
-        this.el.addEventListener(param.transitionEnd, this, false);*/
+        this.el.addEventListener(param.pointerEnd, this, false);*/
+        this.el.addEventListener(param.transitionEnd, this, false);
     }
 
     PopupDialog.prototype = {
@@ -91,7 +92,9 @@ RCAM.widgets.PopupDialog = (function (global) {
          * @private
          */
         _onTransitionEnd : function () {
-
+            if (this.options.onTransitionEndCallback) {
+                this.options.onTransitionEndCallback.call(this);
+            }
         },
 
         /**

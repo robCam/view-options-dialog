@@ -9,6 +9,7 @@ RCAM.widgets.SlidePanel = (function (global) {
     /*jslint nomen:true*/
 
     var utils = RCAM.utils,
+        param = RCAM.param,
         win = global.window,
         doc = global.document,
         nextFrame = win.requestAnimFrame;
@@ -31,7 +32,8 @@ RCAM.widgets.SlidePanel = (function (global) {
          * @type Object
          */
         this.options = {
-            foo : undefined
+            foo : undefined,
+            onTransitionEndCallback: undefined
         };
 
         // Merge/replace the user defined options
@@ -47,11 +49,26 @@ RCAM.widgets.SlidePanel = (function (global) {
         this.el = typeof el === 'string' ? doc.querySelector(el) : el;
 
         this.activeStateStyle = activeStateStyle;
+
+        this.el.addEventListener(param.transitionEnd, this, false);
     }
 
     SlidePanel.prototype = {
 
         constructor: SlidePanel,
+
+        /**
+         * Handles events when they are fired.
+         * @method handleEvent
+         * @private
+         */
+        handleEvent : function (e) {
+            switch (e.type) {
+            case param.transitionEnd:
+                this._onTransitionEnd(e);
+                break;
+            }
+        },
 
         /**
          * Enumerate properties of the 'source' object and copy them to the 'target'.
@@ -66,6 +83,12 @@ RCAM.widgets.SlidePanel = (function (global) {
                         target[i] = source[i];
                     }
                 }
+            }
+        },
+
+        _onTransitionEnd : function () {
+            if (this.options.onTransitionEndCallback) {
+                this.options.onTransitionEndCallback.call(this);
             }
         },
 

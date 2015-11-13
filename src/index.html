@@ -139,21 +139,31 @@
             var optsBttn,
                 popupDialog;
 
-        popupDialog = new RCAM.widgets.PopupDialog('.js-popup-dialog', {
-            onToggleState: function() {
-                var utils = utils = RCAM.utils,
-                    mainContent = document.querySelector('.main-content');
-                utils.toggleClass(mainContent, 'main-content--dimmed');
-            }
-        });
+            popupDialog = new RCAM.widgets.PopupDialog('.js-popup-dialog', {
+                onToggleState: function() {
+                    var utils = utils = RCAM.utils,
+                        mainContent = document.querySelector('.main-content');
+                    utils.toggleClass(mainContent, 'main-content--dimmed');
+                },
+                onTransitionEndCallback: function () {
+                    RCAM.fontSmallerBttn.updateBounds();
+                    RCAM.fontLargerBttn.updateBounds();
+                    RCAM.chosenFontBttn.updateBounds();
+                    RCAM.paperWhiteBttn.updateBounds();
+                    RCAM.paperBlackBttn.updateBounds();
+                    RCAM.paperSepiaBttn.updateBounds();
+                }
+            });
 
-        optsBttn = new RCAM.widgets.Button('.js-view-opts-bttn', {
-                hoverStateStyle: 'main-header__view-opts__bttn--active'
-        }, {
-            onPointerEndCallback: function() {
-                popupDialog.toggleState();
-            }
-        });
+            optsBttn = new RCAM.widgets.Button('.js-view-opts-bttn', {
+                    hoverStateStyle: 'main-header__view-opts__bttn--active'
+            }, {
+                onPointerEndCallback: function() {
+                    popupDialog.toggleState();
+                }
+            });
+
+            RCAM.popupDialog = popupDialog;
             //localStorage.clear();
             RCAM.dialogButtons.init();
         }

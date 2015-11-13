@@ -31,10 +31,10 @@
     background: hsl(0, 0%, 96%);
     border-radius: 14px;
     z-index: 1;
-    -webkit-transition: -webkit-transform 0s ease 0s;
-       -moz-transition:    -moz-transform 0s ease 0s;
-         -o-transition:      -o-transform 0s ease 0s;
-            transition:         transform 0s ease 0s;
+    -webkit-transition: -webkit-transform 0.001s ease 0s;
+       -moz-transition:    -moz-transform 0.001s ease 0s;
+         -o-transition:      -o-transform 0.001s ease 0s;
+            transition:         transform 0.001s ease 0s;
 
     will-change: transform;
     

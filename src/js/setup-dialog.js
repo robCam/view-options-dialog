@@ -9,6 +9,7 @@ RCAM.dialogButtons = (function(window, document, RCAM, localStorage) {
     function init() {
 
         var utils = RCAM.utils,
+            param = RCAM.param,
             fontSmallerBttn,
             fontLargerBttn,
             chosenFontBttn,
@@ -23,7 +24,7 @@ RCAM.dialogButtons = (function(window, document, RCAM, localStorage) {
             paperBttnContainer = document.querySelector('.js-view-options__paper-buttons'),
             jsPaperBttnContainer,
 
-            viewOptionsDialog = document.querySelector('.view-options'), 
+            viewOptionsDialog = document.querySelector('.view-options'),
 
             paper = document.querySelector('.wrapper'),
             paperColorRadioButtons = [],
@@ -51,7 +52,7 @@ RCAM.dialogButtons = (function(window, document, RCAM, localStorage) {
 
             },
             overrideStyleID = '#theme-override',
-            blackOverrideStyle = '.main-content * { color: hsl(0, 0%, 100%) !important; } .main-header { background: hsl(0, 0%, 15%); background: -webkit-linear-gradient(90deg, hsl(0, 0%, 10%) 0%, hsl(0, 0%, 15%) 100%) !important; background: -moz-linear-gradient(90deg, hsl(0, 0%, 10%) 0%, hsl(0, 0%, 15%) 100%) !important; background: linear-gradient(0deg,  hsl(0, 0%, 10%) 0%, hsl(0, 0%, 15%) 100%) !important; }',
+            blackOverrideStyle = '.main-content * { color: hsl(0, 0%, 60%) !important; } .main-header { background: hsl(0, 0%, 15%); background: -webkit-linear-gradient(90deg, hsl(0, 0%, 10%) 0%, hsl(0, 0%, 15%) 100%) !important; background: -moz-linear-gradient(90deg, hsl(0, 0%, 10%) 0%, hsl(0, 0%, 15%) 100%) !important; background: linear-gradient(0deg,  hsl(0, 0%, 10%) 0%, hsl(0, 0%, 15%) 100%) !important; }',
             sepiaOverrideStyle = '.main-content * { color: hsl(40, 65%, 20%) !important; } .main-header { background: hsl(40, 35%, 60%); background: -webkit-linear-gradient(90deg, hsl(40, 35%, 75%) 0%, hsl(40, 35%, 60%) 100%) !important; background: -moz-linear-gradient(90deg, hsl(40, 35%, 75%) 0%, hsl(40, 35%, 60%) 100%) !important; background: linear-gradient(0deg,  hsl(40, 35%, 75%) 0%, hsl(40, 35%, 60%) 100%) !important;}';
 
         if (localStorage.getItem('paperBlackBttnIsActive') === 'true') {
@@ -121,7 +122,12 @@ RCAM.dialogButtons = (function(window, document, RCAM, localStorage) {
 
         jsPaperBttnContainer = new RCAM.widgets.SlidePanel(paperBttnContainer,
             'view-options__paper-buttons--active', {
-                foobar: null
+                foobar: null,
+                onTransitionEndCallback: function () {
+                    RCAM.paperWhiteBttn.updateBounds();
+                    RCAM.paperBlackBttn.updateBounds();
+                    RCAM.paperSepiaBttn.updateBounds();
+                }
             });
 
         paperWhiteBttn = new RCAM.widgets.Button('.js-paper-white', {
@@ -248,6 +254,26 @@ RCAM.dialogButtons = (function(window, document, RCAM, localStorage) {
         document.addEventListener('touchmove', function(e) {
             e.preventDefault();
         }, false);
+
+        // Allow the popup dialog to be closed by touching or
+        // clicking the main content area.
+        mainContent.addEventListener(param.pointerEnd, function() {
+            if (RCAM.popupDialog.isActive) {
+                RCAM.popupDialog.toggleState();
+                if (chosenFontTray.isActive) {
+                    chosenFontTray.toggleState();
+                    jsBottomPanel.toggleState();
+                    jsPaperBttnContainer.toggleState();
+                }
+            }
+        }, false);
+
+        RCAM.fontSmallerBttn = fontSmallerBttn;
+        RCAM.fontLargerBttn = fontLargerBttn;
+        RCAM.chosenFontBttn = chosenFontBttn;
+        RCAM.paperWhiteBttn = paperWhiteBttn;
+        RCAM.paperBlackBttn = paperBlackBttn;
+        RCAM.paperSepiaBttn = paperSepiaBttn;
 
     }
 

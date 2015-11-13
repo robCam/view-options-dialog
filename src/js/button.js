@@ -313,6 +313,10 @@ RCAM.widgets.Button = (function (global) {
             }
         },
 
+        updateBounds : function () {
+            this.bounds = this._getBounds();
+        },
+
         /**
          * Retrieves the buttons bounds via getBoundingClientRect().
          * @method _getBounds
